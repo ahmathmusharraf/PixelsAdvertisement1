@@ -16,7 +16,7 @@ export const BlogSection: React.FC = () => {
             Advertising & Signage Insights
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight">
+          <h2 className="text-lg sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight leading-snug">
             Industry Guides & <span className="text-gradient-orange">Expertise</span>
           </h2>
 
@@ -25,51 +25,51 @@ export const BlogSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
+        {/* Blog Grid (2 columns on mobile) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-8">
           {BLOG_POSTS.map((post) => (
             <div
               key={post.id}
               onClick={() => setActivePost(post)}
-              className="glass-card glass-card-hover rounded-2xl overflow-hidden border border-white/10 hover:border-[#FF6A00]/40 transition-all cursor-pointer flex flex-col justify-between group"
+              className="glass-card glass-card-hover rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 hover:border-[#FF6A00]/40 transition-all cursor-pointer flex flex-col justify-between group"
             >
               <div>
-                <div className="relative h-48 overflow-hidden bg-[#181818]">
+                <div className="relative h-28 sm:h-48 overflow-hidden bg-[#181818]">
                   <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md text-[#9CD248] text-[10px] font-mono font-bold">
+                  <div className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/70 backdrop-blur-md text-[#9CD248] text-[8px] sm:text-[10px] font-mono font-bold">
                     {post.category}
                   </div>
                 </div>
 
-                <div className="p-6 space-y-3">
-                  <div className="flex items-center gap-3 text-[11px] text-gray-400 font-mono">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-[#FF6A00]" /> {post.date}
+                <div className="p-3 sm:p-6 space-y-1.5 sm:space-y-3">
+                  <div className="flex flex-wrap items-center gap-1 sm:gap-3 text-[9px] sm:text-[11px] text-gray-400 font-mono">
+                    <span className="flex items-center gap-0.5 sm:gap-1">
+                      <Calendar className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#FF6A00]" /> {post.date}
                     </span>
-                    <span>•</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3 text-[#9CD248]" /> {post.readTime}
+                    <span className="hidden sm:inline">•</span>
+                    <span className="flex items-center gap-0.5 sm:gap-1">
+                      <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#9CD248]" /> {post.readTime}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white font-display group-hover:text-[#FF6A00] transition-colors leading-snug">
+                  <h3 className="text-xs sm:text-lg font-bold text-white font-display group-hover:text-[#FF6A00] transition-colors leading-snug line-clamp-2 sm:line-clamp-none">
                     {post.title}
                   </h3>
 
-                  <p className="text-xs text-gray-400 font-sans line-clamp-3 leading-relaxed">
+                  <p className="text-[10px] sm:text-xs text-gray-400 font-sans line-clamp-2 sm:line-clamp-3 leading-relaxed">
                     {post.excerpt}
                   </p>
                 </div>
               </div>
 
-              <div className="px-6 pb-6 pt-2 flex items-center justify-between text-xs font-bold text-[#FF6A00]">
-                <span>Read Full Article</span>
-                <ArrowRight className="w-4 h-4" />
+              <div className="px-3 pb-3 sm:px-6 sm:pb-6 pt-1 sm:pt-2 flex items-center justify-between text-[10px] sm:text-xs font-bold text-[#FF6A00]">
+                <span>Read Article</span>
+                <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
               </div>
             </div>
           ))}
