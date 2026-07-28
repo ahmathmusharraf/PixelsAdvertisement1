@@ -61,12 +61,12 @@ export const ContactSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-10 items-start">
           
           {/* Left Column: GET IN TOUCH */}
-          <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+          <div className="lg:col-span-5 space-y-3 sm:space-y-6">
             <div>
-              <div className="text-[10px] sm:text-[11px] font-mono font-bold text-[#FF6A00] uppercase tracking-widest">
+              <div className="text-[9px] sm:text-[11px] font-mono font-bold text-[#FF6A00] uppercase tracking-widest">
                 GET IN TOUCH
               </div>
-              <h2 className="text-xl sm:text-3xl font-extrabold text-white font-display mt-1">
+              <h2 className="text-base sm:text-3xl font-extrabold text-white font-display mt-0.5 leading-snug">
                 Let's Talk About Your Brand
               </h2>
             </div>
@@ -180,8 +180,8 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Right Column: SEND US A MESSAGE Form */}
-          <div className="lg:col-span-7 bg-[#0D0D12] rounded-2xl p-6 sm:p-8 border border-white/10 space-y-4">
-            <h3 className="text-lg font-bold text-white font-display">
+          <div className="lg:col-span-7 bg-[#0D0D12] rounded-xl sm:rounded-2xl p-3.5 sm:p-8 border border-white/10 space-y-3 sm:space-y-4">
+            <h3 className="text-xs sm:text-lg font-bold text-white font-display uppercase">
               SEND US A MESSAGE
             </h3>
 
