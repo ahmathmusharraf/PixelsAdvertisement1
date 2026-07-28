@@ -253,64 +253,64 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
       {/* Service Detail Spec Modal */}
       <AnimatePresence>
         {selectedServiceDetail && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/80 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-2xl bg-[#111111] border border-white/10 rounded-2xl p-6 shadow-2xl space-y-6"
+              className="relative w-full max-w-2xl bg-[#111111] border border-white/10 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 shadow-2xl space-y-3 sm:space-y-5 max-h-[90vh] overflow-y-auto"
             >
               <button
                 onClick={() => setSelectedServiceDetail(null)}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white rounded-lg hover:bg-white/10"
+                className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 p-1.5 text-gray-400 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
 
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-xl bg-[#FF6A00]/20 text-[#FF6A00]">
+              <div className="flex items-center gap-2.5 sm:gap-3 pr-6">
+                <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[#FF6A00]/20 text-[#FF6A00] shrink-0">
                   {getIcon(selectedServiceDetail.iconName)}
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono text-[#9CD248] uppercase tracking-wider">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-[#9CD248] uppercase tracking-wider block">
                     [{selectedServiceDetail.category}]
                   </span>
-                  <h3 className="text-2xl font-bold text-white font-display">
+                  <h3 className="text-sm sm:text-2xl font-bold text-white font-display leading-tight">
                     {selectedServiceDetail.title}
                   </h3>
                 </div>
               </div>
 
-              <p className="text-sm text-gray-300 font-sans leading-relaxed">
+              <p className="text-[11px] sm:text-sm text-gray-300 font-sans leading-relaxed line-clamp-3 sm:line-clamp-none">
                 {selectedServiceDetail.description}
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-4 rounded-xl bg-[#181818] border border-white/5 space-y-2">
-                  <h4 className="text-xs font-bold text-[#FF6A00] uppercase tracking-wider">
+              <div className="grid grid-cols-2 gap-2 sm:gap-4">
+                <div className="p-2.5 sm:p-4 rounded-lg sm:rounded-xl bg-[#181818] border border-white/5 space-y-1.5 sm:space-y-2">
+                  <h4 className="text-[10px] sm:text-xs font-bold text-[#FF6A00] uppercase tracking-wider">
                     Technical Features
                   </h4>
                   <ul className="space-y-1">
                     {selectedServiceDetail.features.map((f, i) => (
-                      <li key={i} className="text-xs text-gray-300 flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#9CD248]" />
-                        {f}
+                      <li key={i} className="text-[10px] sm:text-xs text-gray-300 flex items-center gap-1 sm:gap-1.5">
+                        <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#9CD248] shrink-0" />
+                        <span className="truncate">{f}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {selectedServiceDetail.materials && (
-                  <div className="p-4 rounded-xl bg-[#181818] border border-white/5 space-y-2">
-                    <h4 className="text-xs font-bold text-[#9CD248] uppercase tracking-wider">
+                  <div className="p-2.5 sm:p-4 rounded-lg sm:rounded-xl bg-[#181818] border border-white/5 space-y-1.5 sm:space-y-2">
+                    <h4 className="text-[10px] sm:text-xs font-bold text-[#9CD248] uppercase tracking-wider">
                       Available Materials
                     </h4>
                     <ul className="space-y-1">
                       {selectedServiceDetail.materials.map((m, i) => (
-                        <li key={i} className="text-xs text-gray-300 flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF6A00]" />
-                          {m}
+                        <li key={i} className="text-[10px] sm:text-xs text-gray-300 flex items-center gap-1 sm:gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#FF6A00] shrink-0" />
+                          <span className="truncate">{m}</span>
                         </li>
                       ))}
                     </ul>
@@ -318,23 +318,23 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
                 )}
               </div>
 
-              <div className="p-3 rounded-xl bg-[#161616] border border-white/10 flex items-center justify-between text-xs">
-                <span className="text-gray-400 flex items-center gap-1.5">
-                  <Clock className="w-4 h-4 text-[#FF6A00]" /> Typical Turnaround:
+              <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[#161616] border border-white/10 flex items-center justify-between text-[10px] sm:text-xs">
+                <span className="text-gray-400 flex items-center gap-1 sm:gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#FF6A00]" /> Typical Turnaround:
                 </span>
                 <span className="text-white font-bold">{selectedServiceDetail.typicalTurnaround || '2-4 Days'}</span>
               </div>
 
-              <div className="pt-2 flex gap-3">
+              <div className="pt-1 flex gap-2 sm:gap-3">
                 <button
                   onClick={() => {
                     const sId = selectedServiceDetail.id;
                     setSelectedServiceDetail(null);
                     onOpenQuoteModal(sId);
                   }}
-                  className="w-full py-3 bg-[#FF6A00] hover:bg-[#e05d00] text-white font-bold rounded-xl text-xs uppercase tracking-wider shadow-lg"
+                  className="w-full py-2.5 sm:py-3 bg-[#FF6A00] hover:bg-[#e05d00] text-white font-bold rounded-lg sm:rounded-xl text-[11px] sm:text-xs uppercase tracking-wider shadow-lg flex items-center justify-center gap-1"
                 >
-                  Request Custom Quote for {selectedServiceDetail.title}
+                  Request Quote for {selectedServiceDetail.title}
                 </button>
               </div>
             </motion.div>
