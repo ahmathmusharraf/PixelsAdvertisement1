@@ -112,7 +112,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
             OUR SERVICES
           </div>
 
-          <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight">
+          <h2 className="text-lg sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight leading-snug">
             Complete Advertising & Branding Solutions
           </h2>
 
@@ -155,8 +155,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
           </div>
         </div>
 
-        {/* Services Grid with motion layout */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 2xl:gap-8">
+        {/* Services Grid with motion layout (2 columns on mobile) */}
+        <motion.div layout className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-2.5 sm:gap-6 2xl:gap-8">
           <AnimatePresence>
             {filteredServices.map((service) => (
               <motion.div
@@ -167,62 +167,62 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
                 key={service.id}
-                className="glass-card glass-card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between relative group"
+                className="glass-card glass-card-hover rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-white/10 flex flex-col justify-between relative group"
               >
                 <div>
                   {/* Top Card Bar */}
-                  <div className="flex items-start justify-between gap-3 mb-4">
-                    <div className="p-3 rounded-xl bg-[#FF6A00]/10 text-[#FF6A00] border border-[#FF6A00]/20 group-hover:bg-[#FF6A00] group-hover:text-white transition-colors">
+                  <div className="flex flex-wrap sm:flex-nowrap items-start justify-between gap-1.5 sm:gap-3 mb-2.5 sm:mb-4">
+                    <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[#FF6A00]/10 text-[#FF6A00] border border-[#FF6A00]/20 group-hover:bg-[#FF6A00] group-hover:text-white transition-colors shrink-0">
                       {getIcon(service.iconName)}
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center justify-end gap-1 sm:gap-2">
                       {service.popular && (
-                        <span className="px-2.5 py-1 rounded-md bg-[#9CD248]/20 text-[#9CD248] text-[10px] font-extrabold font-mono border border-[#9CD248]/30">
+                        <span className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded bg-[#9CD248]/20 text-[#9CD248] text-[8px] sm:text-[10px] font-extrabold font-mono border border-[#9CD248]/30">
                           POPULAR
                         </span>
                       )}
-                      <span className="px-2.5 py-1 rounded-md bg-white/5 text-gray-400 text-[10px] font-mono border border-white/10">
+                      <span className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded bg-white/5 text-gray-400 text-[8px] sm:text-[10px] font-mono border border-white/10 truncate max-w-[70px] sm:max-w-none">
                         {service.category}
                       </span>
                     </div>
                   </div>
 
                   {/* Title & Description */}
-                  <h3 className="text-xl font-bold text-white font-display mb-2 group-hover:text-[#FF6A00] transition-colors">
+                  <h3 className="text-xs sm:text-xl font-bold text-white font-display mb-1 sm:mb-2 group-hover:text-[#FF6A00] transition-colors leading-snug">
                     {service.title}
                   </h3>
 
-                  <p className="text-xs text-gray-400 line-clamp-3 mb-4 font-sans leading-relaxed">
+                  <p className="text-[10px] sm:text-xs text-gray-400 line-clamp-2 sm:line-clamp-3 mb-2.5 sm:mb-4 font-sans leading-relaxed">
                     {service.description}
                   </p>
 
                   {/* Features list */}
-                  <ul className="space-y-1.5 mb-6">
-                    {service.features.slice(0, 3).map((feat, i) => (
-                      <li key={i} className="text-[11px] text-gray-300 flex items-center gap-2">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#9CD248] shrink-0" />
-                        <span>{feat}</span>
+                  <ul className="space-y-1 sm:space-y-1.5 mb-3 sm:mb-6">
+                    {service.features.slice(0, 2).map((feat, i) => (
+                      <li key={i} className="text-[9px] sm:text-[11px] text-gray-300 flex items-center gap-1 sm:gap-2">
+                        <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#9CD248] shrink-0" />
+                        <span className="truncate">{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Card Footer Actions */}
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="pt-2.5 sm:pt-4 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-1.5 sm:gap-2">
                   <button
                     onClick={() => setSelectedServiceDetail(service)}
-                    className="text-xs text-gray-400 hover:text-white font-semibold flex items-center gap-1 transition-colors cursor-pointer"
+                    className="text-[10px] sm:text-xs text-gray-400 hover:text-white font-semibold flex items-center justify-center sm:justify-start gap-1 transition-colors cursor-pointer py-0.5"
                   >
-                    <Info className="w-3.5 h-3.5 text-[#FF6A00]" />
-                    View Specs
+                    <Info className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#FF6A00]" />
+                    Specs
                   </button>
 
                   <button
                     onClick={() => onOpenQuoteModal(service.id)}
-                    className="px-4 py-2 rounded-xl bg-[#FF6A00]/10 hover:bg-[#FF6A00] text-[#FF6A00] hover:text-white border border-[#FF6A00]/30 font-bold text-xs transition-all flex items-center gap-1.5 cursor-pointer"
+                    className="px-2 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl bg-[#FF6A00]/10 hover:bg-[#FF6A00] text-[#FF6A00] hover:text-white border border-[#FF6A00]/30 font-bold text-[10px] sm:text-xs transition-all flex items-center justify-center gap-1 cursor-pointer"
                   >
-                    <Calculator className="w-3.5 h-3.5" />
+                    <Calculator className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                     Get Quote
                   </button>
                 </div>
