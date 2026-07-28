@@ -31,7 +31,6 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
   const [height, setHeight] = useState<number>(1);
   const [quantity, setQuantity] = useState<number>(1);
   const [materialGrade, setMaterialGrade] = useState<'standard' | 'premium' | 'luxury'>('premium');
-  const [urgency, setUrgency] = useState<'standard' | 'express'>('standard');
   const [clientName, setClientName] = useState('');
   const [clientPhone, setClientPhone] = useState('');
   const [projectNotes, setProjectNotes] = useState('');
@@ -40,7 +39,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
   const selectedService = SERVICES_LIST.find((s) => s.id === selectedServiceId) || SERVICES_LIST[0];
 
   const areaSqM = Math.max(0.1, width * height);
-  const estimatedDays = urgency === 'express' ? '24 - 48 Hours' : selectedService.typicalTurnaround || '3 - 5 Days';
+  const estimatedDays = selectedService.typicalTurnaround || '3 - 5 Days';
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -54,7 +53,6 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
       `*Dimensions:* ${width}m x ${height}m (${areaSqM.toFixed(2)} sq.m)\n` +
       `*Quantity:* ${quantity} unit(s)\n` +
       `*Material Grade:* ${materialGrade.toUpperCase()}\n` +
-      `*Production Speed:* ${urgency === 'express' ? 'EXPRESS 24H RUSH' : 'Standard Delivery'}\n` +
       `*Client Name:* ${clientName || 'Not specified'}\n` +
       `*Phone:* ${clientPhone || 'Not specified'}\n` +
       `*Notes:* ${projectNotes || 'None'}\n\n` +
@@ -183,42 +181,6 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
                       <div className="text-[8px] sm:text-[10px] text-gray-400 leading-tight">{grade.desc}</div>
                     </button>
                   ))}
-                </div>
-              </div>
-
-              {/* Turnaround urgency */}
-              <div>
-                <label className="block text-[10px] sm:text-xs font-semibold text-gray-300 uppercase tracking-wider mb-1">
-                  Production Speed
-                </label>
-                <div className="grid grid-cols-2 gap-1.5 sm:gap-2.5">
-                  <button
-                    type="button"
-                    onClick={() => setUrgency('standard')}
-                    className={`p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl border text-left transition-all ${
-                      urgency === 'standard'
-                        ? 'border-[#9CD248] bg-[#9CD248]/10 text-white'
-                        : 'border-white/10 bg-[#181818] text-gray-400'
-                    }`}
-                  >
-                    <div className="text-[10px] sm:text-xs font-bold text-white leading-tight">Standard Delivery</div>
-                    <div className="text-[8px] sm:text-[10px] text-gray-400 leading-tight">{selectedService.typicalTurnaround || '3 - 5 Days'}</div>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setUrgency('express')}
-                    className={`p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl border text-left transition-all ${
-                      urgency === 'express'
-                        ? 'border-[#FF6A00] bg-[#FF6A00]/10 text-white'
-                        : 'border-white/10 bg-[#181818] text-gray-400'
-                    }`}
-                  >
-                    <div className="text-[10px] sm:text-xs font-bold text-[#FF6A00] flex items-center gap-1 leading-tight">
-                      <Clock className="w-2.5 h-2.5 sm:w-3 sm:h-3" /> Express 24H Rush
-                    </div>
-                    <div className="text-[8px] sm:text-[10px] text-gray-400 leading-tight">24 - 48 Hours Express</div>
-                  </button>
                 </div>
               </div>
 
