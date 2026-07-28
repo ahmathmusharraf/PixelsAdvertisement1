@@ -1,20 +1,71 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# 🎨 Pixels Advertisement – Ajman
+**Creative Advertising & Digital Marketing Website**
+**Created by Mushi Editz**
 
-# Run and deploy your AI Studio app
+---
 
-This contains everything you need to run your app locally.
+## 🧾 Project Overview
+Pixels Advertisement – Ajman is a modern and responsive business website designed to showcase creative advertising, branding, printing, and digital marketing services. The website provides an engaging online platform where businesses can explore services, view completed projects, and connect with the Pixels Advertisement team.
 
-View your app in AI Studio: https://ai.studio/apps/89b75b5b-f679-4383-ab36-65bc6ec5881f
+---
 
-## Run Locally
+## ✨ Features
 
-**Prerequisites:**  Node.js
+* 🏠 Modern and professional homepage
+* 🎨 Creative advertising and branding services
+* 🖨️ Printing and signage solutions
+* 📱 Social media and digital marketing services
+* 💼 Portfolio and completed projects showcase
+* 📝 Service inquiry and contact forms
+* 📍 Ajman location and business information
+* 📱 Fully responsive and mobile-friendly design
+* ⚡ Fast and user-friendly interface
+* 🔍 SEO-friendly website structure
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 🛠️ Technologies Used
+
+### Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+* React.js
+* Tailwind CSS
+
+### Tools & Services
+
+* Canva
+* Adobe Creative Suite
+* Google Maps Integration
+* Email and Contact Form Integration
+
+---
+
+## 🎯 Project Purpose
+The website is designed to:
+
+* Build a strong online presence for Pixels Advertisement
+* Showcase advertising, branding, and creative services
+* Display completed projects and portfolio work
+* Generate new customer inquiries and business leads
+* Make it easy for customers to contact the team
+
+---
+
+## 📞 Contact
+**Pixels Advertisement – Ajman**
+Creative Advertising, Branding & Digital Marketing
+
+**Website Created by Mushi Editz**
+
+---
+
+## 📄 License
+This project is licensed under the **MIT License**.
+
+---
+
+### 🚀 Designed & Developed by Mushi Editz
+*Creating powerful digital experiences and creative business solutions.*
