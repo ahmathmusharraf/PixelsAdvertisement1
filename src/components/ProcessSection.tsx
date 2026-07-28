@@ -13,7 +13,7 @@ import { PROCESS_STEPS } from '../data/pixelsData';
 
 export const ProcessSection: React.FC = () => {
   const getStepIcon = (index: number) => {
-    const props = { className: 'w-6 h-6' };
+    const props = { className: 'w-4 h-4 sm:w-6 sm:h-6' };
     switch (index) {
       case 0: return <MessageSquare {...props} />;
       case 1: return <PenTool {...props} />;
@@ -44,7 +44,7 @@ export const ProcessSection: React.FC = () => {
             OUR PROCESS
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight">
+          <h2 className="text-xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight leading-snug">
             From Concept To Creation
           </h2>
 
@@ -53,8 +53,8 @@ export const ProcessSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Timeline Grid / Row */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 sm:gap-6 relative">
+        {/* Timeline Grid / Row (2 columns on mobile) */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2.5 sm:gap-6 relative">
           {/* Background Connecting Line for Desktop */}
           <motion.div
             initial={{ scaleX: 0 }}
@@ -72,26 +72,26 @@ export const ProcessSection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.15 }}
               whileHover={{ y: -6 }}
-              className="relative z-10 glass-card glass-card-hover rounded-2xl p-6 border border-white/10 flex flex-col justify-between group cursor-pointer"
+              className="relative z-10 glass-card glass-card-hover rounded-xl sm:rounded-2xl p-3.5 sm:p-6 border border-white/10 flex flex-col justify-between group cursor-pointer"
             >
               <div>
                 {/* Step Circle Header */}
-                <div className="w-14 h-14 rounded-2xl bg-[#141414] border border-[#FF6A00]/40 text-[#FF6A00] flex items-center justify-center font-mono font-black text-lg mb-6 group-hover:bg-[#FF6A00] group-hover:text-white transition-all shadow-xl">
+                <div className="w-9 h-9 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-[#141414] border border-[#FF6A00]/40 text-[#FF6A00] flex items-center justify-center font-mono font-black text-sm sm:text-lg mb-3 sm:mb-6 group-hover:bg-[#FF6A00] group-hover:text-white transition-all shadow-xl">
                   {step.step}
                 </div>
 
-                <h3 className="text-lg font-bold text-white font-display mb-3 group-hover:text-[#FF6A00] transition-colors">
+                <h3 className="text-xs sm:text-lg font-bold text-white font-display mb-1.5 sm:mb-3 group-hover:text-[#FF6A00] transition-colors leading-snug">
                   {step.title}
                 </h3>
 
-                <p className="text-xs text-gray-400 font-sans leading-relaxed">
+                <p className="text-[10px] sm:text-xs text-gray-400 font-sans leading-relaxed line-clamp-3 sm:line-clamp-none">
                   {step.description}
                 </p>
               </div>
 
               {/* Step Icon Accent */}
-              <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-gray-500 group-hover:text-[#9CD248] transition-colors">
-                <span className="text-[10px] font-mono uppercase tracking-wider">PHASE 0{idx + 1}</span>
+              <div className="mt-3 sm:mt-6 pt-2.5 sm:pt-4 border-t border-white/5 flex items-center justify-between text-gray-500 group-hover:text-[#9CD248] transition-colors">
+                <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider">PHASE 0{idx + 1}</span>
                 {getStepIcon(idx)}
               </div>
             </motion.div>
