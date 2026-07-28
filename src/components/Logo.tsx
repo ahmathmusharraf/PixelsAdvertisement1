@@ -11,8 +11,13 @@ export const Logo: React.FC<LogoProps> = ({
   className = '',
   size = 'md',
   showSubtitle = false,
-  logoPngPath = 'public/PixelsLogo.png',
+  logoPngPath = '/PixelsLogo.png',
 }) => {
+  // Normalize path if 'public/' prefix is included so browser loads from root /
+  const formattedPath = logoPngPath.startsWith('public/')
+    ? `/${logoPngPath.replace(/^public\//, '')}`
+    : logoPngPath;
+
   const sizeClasses = {
     sm: 'h-8 sm:h-9 max-w-[180px] sm:max-w-[210px]',
     md: 'h-10 sm:h-12 max-w-[220px] sm:max-w-[280px]',
@@ -25,7 +30,7 @@ export const Logo: React.FC<LogoProps> = ({
       {/* 4799 x 1309 PNG Format Banner Logo Image */}
       <div className="flex items-center">
         <img
-          src={logoPngPath}
+          src={formattedPath}
           alt="Pixels Advertisement Logo (4799x1309)"
           referrerPolicy="no-referrer"
           className={`${sizeClasses[size]} w-auto object-contain rounded-xl shadow-md border border-white/10 group-hover:scale-[1.02] transition-all duration-300`}
