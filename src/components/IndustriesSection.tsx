@@ -15,7 +15,7 @@ import { INDUSTRIES_SERVED } from '../data/pixelsData';
 
 export const IndustriesSection: React.FC = () => {
   const getIndustryIcon = (iconName: string) => {
-    const props = { className: 'w-6 h-6' };
+    const props = { className: 'w-4 h-4 sm:w-6 sm:h-6' };
     switch (iconName) {
       case 'Utensils': return <Utensils {...props} />;
       case 'ShoppingBag': return <ShoppingBag {...props} />;
@@ -41,7 +41,7 @@ export const IndustriesSection: React.FC = () => {
             Sectors & Industries
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight">
+          <h2 className="text-lg sm:text-4xl lg:text-5xl font-extrabold text-white font-display tracking-tight leading-snug">
             Tailored Advertising For <span className="text-gradient-brand">Every Industry</span>
           </h2>
 
@@ -50,32 +50,32 @@ export const IndustriesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 9 Industry Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+        {/* 9 Industry Cards (2 columns on mobile) */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-6">
           {INDUSTRIES_SERVED.map((ind, idx) => (
             <div
               key={idx}
-              className="glass-card glass-card-hover rounded-2xl p-6 border border-white/10 hover:border-[#FF6A00]/40 transition-all flex flex-col justify-between group"
+              className="glass-card glass-card-hover rounded-xl sm:rounded-2xl p-3.5 sm:p-6 border border-white/10 hover:border-[#FF6A00]/40 transition-all flex flex-col justify-between group"
             >
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#FF6A00]/10 text-[#FF6A00] border border-[#FF6A00]/20 flex items-center justify-center mb-4 group-hover:bg-[#FF6A00] group-hover:text-white transition-colors">
+                <div className="w-8 h-8 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-[#FF6A00]/10 text-[#FF6A00] border border-[#FF6A00]/20 flex items-center justify-center mb-2.5 sm:mb-4 group-hover:bg-[#FF6A00] group-hover:text-white transition-colors">
                   {getIndustryIcon(ind.icon)}
                 </div>
 
-                <h3 className="text-xl font-bold text-white font-display mb-2 group-hover:text-[#FF6A00] transition-colors">
+                <h3 className="text-xs sm:text-xl font-bold text-white font-display mb-1 sm:mb-2 group-hover:text-[#FF6A00] transition-colors leading-snug">
                   {ind.name}
                 </h3>
 
-                <p className="text-xs text-gray-400 font-sans leading-relaxed mb-4">
+                <p className="text-[10px] sm:text-xs text-gray-400 font-sans leading-relaxed mb-2.5 sm:mb-4 line-clamp-2 sm:line-clamp-none">
                   {ind.description}
                 </p>
 
                 {/* Solutions List */}
-                <div className="space-y-1.5 pt-3 border-t border-white/5">
-                  {ind.solutions.map((s, i) => (
-                    <div key={i} className="text-[11px] text-gray-300 flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-[#9CD248]" />
-                      <span>{s}</span>
+                <div className="space-y-1 sm:space-y-1.5 pt-2 sm:pt-3 border-t border-white/5">
+                  {ind.solutions.slice(0, 3).map((s, i) => (
+                    <div key={i} className="text-[9px] sm:text-[11px] text-gray-300 flex items-center gap-1 sm:gap-1.5 truncate">
+                      <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#9CD248] shrink-0" />
+                      <span className="truncate">{s}</span>
                     </div>
                   ))}
                 </div>
