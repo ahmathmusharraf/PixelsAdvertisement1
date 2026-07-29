@@ -62,10 +62,15 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="hidden lg:block border-b border-white/10 pb-2 mb-3 px-4 sm:px-6 lg:px-8 2xl:px-12 text-xs text-gray-400">
         <div className="max-w-7xl 2xl:max-w-[1536px] 3xl:max-w-[1800px] mx-auto flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1.5 text-gray-300">
+            <a
+              href={COMPANY_DETAILS.mapUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-gray-300 hover:text-[#FF6A00] transition-colors"
+            >
               <MapPin className="w-3.5 h-3.5 text-[#FF6A00]" />
               {COMPANY_DETAILS.address.line1}, {COMPANY_DETAILS.address.area}, {COMPANY_DETAILS.address.city}, UAE
-            </span>
+            </a>
             <span className="flex items-center gap-1.5 text-gray-400">
               <Clock className="w-3.5 h-3.5 text-[#9CD248]" />
               {COMPANY_DETAILS.workingHours}
@@ -159,7 +164,7 @@ export const Header: React.FC<HeaderProps> = ({
                       Signage & LED
                     </h4>
                     <ul className="space-y-2 text-xs">
-                      {SERVICES_LIST.filter((s) => s.category === 'Signage').slice(0, 5).map((s) => (
+                      {SERVICES_LIST.filter((s) => ['LED Screens', '3D Signages', 'Outdoor', 'Indoor', 'Neon Signs'].includes(s.category)).slice(0, 5).map((s) => (
                         <li key={s.id}>
                           <button
                             onClick={() => {
@@ -177,10 +182,10 @@ export const Header: React.FC<HeaderProps> = ({
 
                   <div>
                     <h4 className="text-xs font-bold text-[#9CD248] uppercase tracking-wider mb-3 pb-1 border-b border-white/10">
-                      Printing & Wrapping
+                      Sticker & Printing
                     </h4>
                     <ul className="space-y-2 text-xs">
-                      {SERVICES_LIST.filter((s) => s.category === 'Printing' || s.category === 'Vehicle').slice(0, 5).map((s) => (
+                      {SERVICES_LIST.filter((s) => ['Sticker Branding', 'Printing & Paper'].includes(s.category)).slice(0, 5).map((s) => (
                         <li key={s.id}>
                           <button
                             onClick={() => {
@@ -198,10 +203,10 @@ export const Header: React.FC<HeaderProps> = ({
 
                   <div>
                     <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3 pb-1 border-b border-white/10">
-                      Branding & Events
+                      Machinery & Traffic
                     </h4>
                     <ul className="space-y-2 text-xs">
-                      {SERVICES_LIST.filter((s) => s.category === 'Branding' || s.category === 'Exhibition').slice(0, 5).map((s) => (
+                      {SERVICES_LIST.filter((s) => ['Signage Machinery', 'Traffic Signs'].includes(s.category)).slice(0, 5).map((s) => (
                         <li key={s.id}>
                           <button
                             onClick={() => {
