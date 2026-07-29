@@ -80,7 +80,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
             >
               <Sparkles className="w-3 h-3 text-[#FF6A00]" />
               <span className="text-[9px] sm:text-[11px] font-bold uppercase tracking-widest text-gray-300">
-                CREATIVE • INNOVATIVE • IMPACTFUL
+                #1 LED SCREEN & SIGNAGE SPECIALIST IN UAE
               </span>
             </motion.div>
 
@@ -91,12 +91,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-[24px] sm:text-5xl lg:text-7xl font-black text-white font-display tracking-tight leading-[1.1]"
             >
-              TRANSFORMING <br className="hidden sm:inline" />
-              IDEAS INTO <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-[#FF6A00] drop-shadow-[0_0_25px_rgba(255,106,0,0.4)] mr-1.5">Powerful</span> 
-              <span className="bg-gradient-to-r from-[#A044FF] via-[#FF6A00] to-[#00F2FE] bg-clip-text text-transparent">
-                VISUAL EXPERIENCES
-              </span>
+              OUTDOOR & INDOOR <br className="hidden sm:inline" />
+              <span className="bg-gradient-to-r from-[#FF6A00] via-[#FFD700] to-[#00F2FE] bg-clip-text text-transparent">
+                LED SCREENS
+              </span> <br className="hidden sm:inline" />
+              <span className="font-serif italic font-normal text-white drop-shadow-[0_0_25px_rgba(255,106,0,0.4)] mr-1.5">&</span> 
+              <span>3D SIGNAGE</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -106,7 +106,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-[11px] sm:text-sm text-gray-300 max-w-xl font-sans leading-snug sm:leading-relaxed"
             >
-              We are a full-service advertising & branding agency in UAE delivering signage, printing, branding, digital marketing and visual communication solutions.
+              Pixels Advertising is UAE's premier specialist for high-definition Outdoor/Indoor LED Screens, 3D Signages, Sticker Branding, Neon Signs, Signage Machinery, Traffic Signs, Business Cards, Flyers, and Bill Books & Flags.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -172,8 +172,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-1.5 sm:p-3 border border-white/15 shadow-2xl">
               <div className="relative h-[160px] sm:h-[340px] lg:h-[420px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#0A0A0E]">
                 <img
-                  src={vehicleWrapImg}
-                  alt="Pixels Vehicle Branding"
+                  src={signageImg}
+                  alt="Pixels Outdoor & Indoor LED Screen Showcase"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
@@ -183,13 +183,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
                 <motion.div
                   animate={{ y: [0, -3, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-2 left-2 sm:top-4 sm:left-6 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md border border-white/20 flex items-center gap-1 sm:gap-2 shadow-xl"
+                  className="absolute top-2 left-2 sm:top-4 sm:left-6 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/85 backdrop-blur-md border border-[#FF6A00]/50 flex items-center gap-1.5 sm:gap-2.5 shadow-xl"
                 >
-                  <div className="w-5 h-4 sm:w-10 sm:h-8 rounded overflow-hidden shrink-0">
-                    <img src={signageImg} alt="LED" className="w-full h-full object-cover" />
-                  </div>
-                  <span className="text-[8px] sm:text-[11px] font-mono font-bold text-white uppercase tracking-wider">
-                    LED DISPLAYS
+                  <div className="w-2 h-2 rounded-full bg-[#FF6A00] animate-ping" />
+                  <span className="text-[8px] sm:text-[11px] font-mono font-extrabold text-[#FF6A00] uppercase tracking-wider">
+                    OUTDOOR & INDOOR LED SCREENS
                   </span>
                 </motion.div>
 
@@ -204,28 +202,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
                   </span>
                 </motion.div>
 
-                {/* Floating Badge 3: Vehicle Branding */}
+                {/* Floating Badge 3: Sticker Branding */}
                 <motion.div
                   animate={{ x: [0, 3, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-1/2 right-2 -translate-y-1/2 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md border border-[#FF6A00]/40 shadow-xl"
+                  className="absolute top-1/2 right-2 -translate-y-1/2 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md border border-white/20 shadow-xl"
                 >
-                  <span className="text-[8px] sm:text-[11px] font-mono font-bold text-[#FF6A00] uppercase tracking-wider">
-                    VEHICLE BRANDING
+                  <span className="text-[8px] sm:text-[11px] font-mono font-bold text-[#9CD248] uppercase tracking-wider">
+                    STICKER BRANDING
                   </span>
                 </motion.div>
 
-                {/* Floating Badge 4: Large Format Printing */}
+                {/* Floating Badge 4: Printing & Machinery */}
                 <motion.div
                   animate={{ y: [0, -3, 0] }}
                   transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
                   className="absolute bottom-2 right-2 sm:bottom-4 sm:right-6 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md border border-white/20 flex items-center gap-1.5 sm:gap-3 shadow-xl max-w-xs"
                 >
-                  <div className="w-7 h-5 sm:w-14 sm:h-10 rounded overflow-hidden shrink-0">
-                    <img src={heroBg} alt="Printing" className="w-full h-full object-cover" />
+                  <div className="w-7 h-5 sm:w-12 sm:h-8 rounded overflow-hidden shrink-0">
+                    <img src={heroBg} alt="Signage Machinery" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-[8px] sm:text-[10px] font-mono font-bold text-gray-200 uppercase tracking-wider">
-                    PRINTING BAY
+                    MACHINERY & PRINT
                   </span>
                 </motion.div>
               </div>
