@@ -196,10 +196,15 @@ export const Footer: React.FC = () => {
               Ajman Headquarters
             </h4>
             <div className="text-xs text-gray-400 space-y-2 font-sans">
-              <p className="flex items-start gap-1.5 text-gray-300">
+              <a
+                href={COMPANY_DETAILS.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-1.5 text-gray-300 hover:text-[#FF6A00] transition-colors"
+              >
                 <MapPin className="w-4 h-4 text-[#FF6A00] shrink-0 mt-0.5" />
                 <span>{COMPANY_DETAILS.address.line1}, {COMPANY_DETAILS.address.area}, Ajman, UAE</span>
-              </p>
+              </a>
               <p className="flex items-center gap-1.5 text-white font-bold">
                 <Phone className="w-4 h-4 text-[#FF6A00]" />
                 <a href={`tel:${COMPANY_DETAILS.phoneRaw}`} className="hover:underline">{COMPANY_DETAILS.phone}</a>
