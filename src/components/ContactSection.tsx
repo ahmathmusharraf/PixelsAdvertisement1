@@ -96,7 +96,7 @@ export const ContactSection: React.FC = () => {
 
               <div className="flex items-center gap-3 p-3 rounded-xl bg-[#0D0D12] border border-white/10">
                 <Clock className="w-4 h-4 text-[#FF6A00] shrink-0" />
-                <span className="font-bold text-white">Mon - Sat: 9:00 AM - 8:00 PM</span>
+                <span className="font-bold text-white">{COMPANY_DETAILS.workingHours}</span>
               </div>
             </div>
 
@@ -168,12 +168,12 @@ export const ContactSection: React.FC = () => {
                   <span className="text-[9px] text-gray-400">China Mall Gate No 6</span>
                 </div>
                 <a
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('China Mall Gate 6 Ajman')}`}
+                  href={COMPANY_DETAILS.mapUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-lg bg-[#0084FF] hover:bg-[#0070D6] text-white text-[10px] font-bold uppercase"
+                  className="px-3 py-1.5 rounded-lg bg-[#0084FF] hover:bg-[#0070D6] text-white text-[10px] font-bold uppercase flex items-center gap-1"
                 >
-                  DIRECTIONS
+                  <span>MAP LOCATION</span>
                 </a>
               </div>
             </div>
