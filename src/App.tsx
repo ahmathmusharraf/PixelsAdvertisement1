@@ -3,6 +3,7 @@ import { DevicePresentationMode } from './components/DevicePresentationMode';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { ServicesSection } from './components/ServicesSection';
+import { LedScreenSpotlight } from './components/LedScreenSpotlight';
 import { AboutSection } from './components/AboutSection';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { ProcessSection } from './components/ProcessSection';
@@ -73,8 +74,11 @@ export default function App() {
           {/* Hero Section */}
           <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
 
-          {/* 26 Advertising Services Grid */}
+          {/* Services Grid */}
           <ServicesSection onOpenQuoteModal={handleOpenQuoteModal} />
+
+          {/* LED Screen Specialized Feature Spotlight */}
+          <LedScreenSpotlight onOpenQuoteModal={handleOpenQuoteModal} />
 
           {/* About Company & Facility */}
           <AboutSection onOpenQuoteModal={() => handleOpenQuoteModal()} />
