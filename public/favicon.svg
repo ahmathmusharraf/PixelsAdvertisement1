@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6A00"/>
+      <stop offset="50%" stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#00F2FE"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6A00" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#07070A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="512" height="512" rx="128" fill="#0A0A0E"/>
+  <rect width="512" height="512" rx="128" fill="url(#bgGlow)"/>
+  <rect width="504" height="504" x="4" y="4" rx="124" fill="none" stroke="#FF6A00" stroke-width="6" stroke-opacity="0.4"/>
+
+  <!-- LED Grid Pixel Pattern -->
+  <g opacity="0.25">
+    <circle cx="96" cy="96" r="8" fill="#FF6A00"/>
+    <circle cx="160" cy="96" r="8" fill="#FF6A00"/>
+    <circle cx="224" cy="96" r="8" fill="#FF6A00"/>
+    <circle cx="288" cy="96" r="8" fill="#FF6A00"/>
+    <circle cx="352" cy="96" r="8" fill="#00F2FE"/>
+    <circle cx="416" cy="96" r="8" fill="#00F2FE"/>
+
+    <circle cx="96" cy="416" r="8" fill="#00F2FE"/>
+    <circle cx="160" cy="416" r="8" fill="#00F2FE"/>
+    <circle cx="224" cy="416" r="8" fill="#00F2FE"/>
+    <circle cx="288" cy="416" r="8" fill="#FF6A00"/>
+    <circle cx="352" cy="416" r="8" fill="#FF6A00"/>
+    <circle cx="416" cy="416" r="8" fill="#FF6A00"/>
+  </g>
+
+  <!-- Glowing Pixel 'P' Monogram -->
+  <g font-family="'Outfit', 'Plus Jakarta Sans', sans-serif" font-weight="900" text-anchor="middle">
+    <!-- Drop Shadow Glow -->
+    <path d="M 140 100 H 300 C 370 100 370 240 300 240 H 220 V 412 H 140 Z" fill="#FF6A00" opacity="0.4" filter="blur(20px)"/>
+    <!-- Main Letter P -->
+    <path d="M 140 100 H 290 C 360 100 360 236 290 236 H 220 V 412 H 140 Z" fill="url(#glowGrad)"/>
+    <!-- Inner P Hole -->
+    <path d="M 220 156 H 280 C 315 156 315 180 280 180 H 220 Z" fill="#0A0A0E"/>
+  </g>
+
+  <!-- Decorative LED Screen Dots on the P stem -->
+  <circle cx="180" cy="140" r="10" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="180" cy="196" r="10" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="180" cy="252" r="10" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="180" cy="308" r="10" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="180" cy="364" r="10" fill="#FFFFFF" opacity="0.9"/>
+</svg>
