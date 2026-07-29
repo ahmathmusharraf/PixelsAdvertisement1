@@ -34,6 +34,8 @@ import {
   Info,
   X,
   Calculator,
+  Tv,
+  ShieldAlert,
 } from 'lucide-react';
 import { SERVICES_LIST, ServiceItem } from '../data/pixelsData';
 
@@ -50,6 +52,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
   const getIcon = (iconName: string) => {
     const props = { className: 'w-6 h-6' };
     switch (iconName) {
+      case 'Tv': return <Tv {...props} />;
+      case 'ShieldAlert': return <ShieldAlert {...props} />;
       case 'Printer': return <Printer {...props} />;
       case 'LayoutGrid': return <LayoutGrid {...props} />;
       case 'Zap': return <Zap {...props} />;
@@ -80,7 +84,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
     }
   };
 
-  const categories = ['All', 'Signage', 'Printing', 'Vehicle', 'Branding', 'Exhibition', 'Digital'];
+  const categories = [
+    'All',
+    'LED Screens',
+    '3D Signages',
+    'Outdoor',
+    'Indoor',
+    'Sticker Branding',
+    'Neon Signs',
+    'Signage Machinery',
+    'Traffic Signs',
+    'Printing & Paper',
+  ];
 
   const filteredServices = SERVICES_LIST.filter((service) => {
     const matchesCategory = selectedCategory === 'All' || service.category === selectedCategory;
