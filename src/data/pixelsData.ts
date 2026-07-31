@@ -8,7 +8,6 @@ export interface ServiceItem {
     | 'Indoor'
     | 'Sticker Branding'
     | 'Neon Signs'
-    | 'Signage Machinery'
     | 'Traffic Signs'
     | 'Printing & Paper'
     | 'Printing'
@@ -91,8 +90,8 @@ export const COMPANY_DETAILS = {
   },
   phone: '+971 52 139 9918',
   phoneRaw: '971521399918',
-  email: 'info@pixelsadvertisement.ae',
-  website: 'pixelsadvertisement.ae',
+  email: 'info@pixelsadv.ae',
+  website: 'pixelsadv.ae',
   workingHours: 'Mon - Sat: 8:00 AM - 8:30 PM | Sun: Closed',
   mapUrl: 'https://maps.app.goo.gl/ENLYyavqa8gwa69e9',
   social: {
@@ -117,7 +116,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     description: 'High-brightness indoor & outdoor LED video walls, programmable display screens, and curved LED boards for maximum advertising impact.',
     iconName: 'Tv',
     popular: true,
-    features: ['P2.5 to P10 pixel pitch options', 'IP65 weatherproof rating', 'Ultra-bright daylight visibility', 'Remote cloud content management'],
+    features: ['Outdoor: P2.5, P6, P10 | Indoor: P1.5, P1.8, P2.5, P3', 'IP65 weatherproof rating', 'Ultra-bright daylight visibility', 'Remote cloud content management'],
     materials: ['Die-cast Aluminum Cabinets', 'Nationstar LEDs', 'Meanwell Power Supplies'],
     typicalTurnaround: '3-5 Days',
     image: heroBg,
@@ -180,18 +179,6 @@ export const SERVICES_LIST: ServiceItem[] = [
     features: ['Unbreakable silicone LED neon flex', 'Low energy 12V operation', 'Acrylic backplate backing', 'Halo & face glow options'],
     materials: ['Flexible Silicone LED', 'Clear Acrylic Board', 'IP67 Waterproof LEDs'],
     typicalTurnaround: '2-4 Days',
-    image: signageImg,
-  },
-  {
-    id: 'signage-machinery',
-    title: 'Signage Machinery',
-    category: 'Signage Machinery',
-    description: 'Industrial CO2 laser cutting, 3D CNC routing, channel letter bending machinery, and UV direct flatbed printing services.',
-    iconName: 'Cpu',
-    popular: true,
-    features: ['Sub-millimeter cutting accuracy', 'Up to 20mm acrylic cutting', 'V-groove folding for ACP panels', 'Direct print on rigid media'],
-    materials: ['Acrylic', 'Wood', 'MDF', 'Hardwood', 'Aluminum Composite'],
-    typicalTurnaround: '24-48 Hours',
     image: signageImg,
   },
   {
