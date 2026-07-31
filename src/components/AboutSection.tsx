@@ -97,7 +97,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
             </h2>
 
             <p className="text-sm sm:text-base text-gray-300 font-sans leading-relaxed">
-              Established in Ajman, United Arab Emirates, Pixels Advertisement is a premier LED video wall specialist and full-service signage manufacturer. We design, fabricate, and install state-of-the-art Outdoor & Indoor LED Screens, 3D Signages, Sticker Branding, Neon Signs, Signage Machinery, Traffic Signs, Business Cards, Flyers, and Bill Books & Flags.
+              Established in Ajman, United Arab Emirates, Pixels Advertisement is a premier LED video wall specialist and full-service signage manufacturer. We design, fabricate, and install state-of-the-art Outdoor & Indoor LED Screens, 3D Signages, Sticker Branding, Neon Signs, Traffic Signs, Business Cards, Flyers, and Bill Books & Flags.
             </p>
 
             {/* Interactive Tab Switcher (Founder Message, Mission, Vision, Facility) */}
