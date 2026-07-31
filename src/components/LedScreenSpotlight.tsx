@@ -24,14 +24,14 @@ export const LedScreenSpotlight: React.FC<LedScreenSpotlightProps> = ({ onOpenQu
   const ledHighlights = [
     {
       title: 'Outdoor HD LED Screens',
-      pitch: 'P3.9 / P4.8 / P6 / P10',
+      pitch: 'P2.5 / P6 / P10',
       brightness: '6,500+ Nits Daylight Clear',
       waterproof: 'IP65 Weatherproof Sealed',
       desc: 'Engineered specifically for harsh Gulf climates with anti-glare high refresh rate panels, heat dissipation aluminum, and storm resistance.',
     },
     {
       title: 'Indoor Fine-Pitch LED Video Walls',
-      pitch: 'P1.2 / P1.5 / P1.8 / P2.5',
+      pitch: 'P1.5 / P1.8 / P2.5 / P3',
       brightness: '1,200 Nits High Contrast',
       waterproof: 'Seamless Bezel-Free Display',
       desc: 'Ultra-thin, silent fanless cabinets ideal for luxury retail receptions, control rooms, auditoriums, and exhibition booths.',
