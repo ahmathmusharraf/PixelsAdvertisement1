@@ -106,7 +106,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-[11px] sm:text-sm text-gray-300 max-w-xl font-sans leading-snug sm:leading-relaxed"
             >
-              Pixels Advertising is UAE's premier specialist for high-definition Outdoor/Indoor LED Screens, 3D Signages, Sticker Branding, Neon Signs, Signage Machinery, Traffic Signs, Business Cards, Flyers, and Bill Books & Flags.
+              Pixels Advertising is UAE's premier specialist for high-definition Outdoor/Indoor LED Screens, 3D Signages, Sticker Branding, Neon Signs, Traffic Signs, Business Cards, Flyers, and Bill Books & Flags.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -220,10 +220,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
                   className="absolute bottom-2 right-2 sm:bottom-4 sm:right-6 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md border border-white/20 flex items-center gap-1.5 sm:gap-3 shadow-xl max-w-xs"
                 >
                   <div className="w-7 h-5 sm:w-12 sm:h-8 rounded overflow-hidden shrink-0">
-                    <img src={heroBg} alt="Signage Machinery" className="w-full h-full object-cover" />
+                    <img src={heroBg} alt="Printing & Paper" className="w-full h-full object-cover" />
                   </div>
                   <span className="text-[8px] sm:text-[10px] font-mono font-bold text-gray-200 uppercase tracking-wider">
-                    MACHINERY & PRINT
+                    PRINTING & PAPER
                   </span>
                 </motion.div>
               </div>
