@@ -35,7 +35,7 @@ export const ContactSection: React.FC = () => {
       `*Phone:* ${formData.phone}\n` +
       `*Service:* ${formData.service}\n` +
       `*Message:* ${formData.message}\n\n` +
-      `Sent via pixelsadvertisement.ae Contact Form`;
+      `Sent via ${COMPANY_DETAILS.website} Contact Form`;
 
     const encoded = encodeURIComponent(text);
     const whatsappUrl = `https://wa.me/${COMPANY_DETAILS.phoneRaw}?text=${encoded}`;
@@ -89,8 +89,8 @@ export const ContactSection: React.FC = () => {
 
               <div className="flex items-center gap-3 p-3 rounded-xl bg-[#0D0D12] border border-white/10">
                 <Mail className="w-4 h-4 text-[#FF6A00] shrink-0" />
-                <a href="mailto:info@pixelsadvertisement.ae" className="font-bold text-white hover:text-[#FF6A00]">
-                  info@pixelsadvertisement.ae
+                <a href={`mailto:${COMPANY_DETAILS.email}`} className="font-bold text-white hover:text-[#FF6A00]">
+                  {COMPANY_DETAILS.email}
                 </a>
               </div>
 
@@ -205,7 +205,7 @@ export const ContactSection: React.FC = () => {
                         `*Phone:* ${formData.phone}\n` +
                         `*Service:* ${formData.service}\n` +
                         `*Message:* ${formData.message}\n\n` +
-                        `Sent via pixelsadvertisement.ae Contact Form`;
+                        `Sent via ${COMPANY_DETAILS.website} Contact Form`;
                       const encoded = encodeURIComponent(text);
                       window.open(`https://wa.me/${COMPANY_DETAILS.phoneRaw}?text=${encoded}`, '_blank');
                     }}
