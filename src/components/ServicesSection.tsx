@@ -92,7 +92,6 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuoteMod
     'Indoor',
     'Sticker Branding',
     'Neon Signs',
-    'Signage Machinery',
     'Traffic Signs',
     'Printing & Paper',
   ];
