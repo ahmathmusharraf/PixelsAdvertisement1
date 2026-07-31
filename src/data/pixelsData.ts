@@ -524,7 +524,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     id: '1',
     name: 'Danyal (Pwng Liu)',
     role: 'CEO, Founder',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
+    image: '/Danyal.jpg',
     socials: { linkedin: '#', twitter: '#', instagram: '#' },
   },
   {
