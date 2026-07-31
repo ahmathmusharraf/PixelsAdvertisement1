@@ -506,3 +506,67 @@ export const BLOG_POSTS: BlogPost[] = [
     image: brandingImg,
   },
 ];
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  image: string;
+  socials?: {
+    linkedin?: string;
+    twitter?: string;
+    instagram?: string;
+  };
+}
+
+export const TEAM_MEMBERS: TeamMember[] = [
+  {
+    id: '1',
+    name: 'Danyal (Pwng Liu)',
+    role: 'CEO, Founder',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
+  },
+  {
+    id: '2',
+    name: 'Nero',
+    role: 'Assistant Operation Manager',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
+  },
+  {
+    id: '3',
+    name: 'Alex Aquino',
+    role: 'Human Resource',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
+  },
+  {
+    id: '4',
+    name: 'Tony Thomas',
+    role: 'Designer',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
+  },
+  {
+    id: '5',
+    name: 'Roney Thomas',
+    role: 'Design Manager',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
+  },
+  {
+    id: '6',
+    name: 'Susan Roney Thomas',
+    role: 'Junior Accountant',
+    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
+  },
+  {
+    id: '7',
+    name: 'Saroj Khan',
+    role: 'Production Manager',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
+  },
+];
