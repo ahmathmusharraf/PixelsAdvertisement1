@@ -27,8 +27,8 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
   const [selectedServiceId, setSelectedServiceId] = useState<string>(
     preselectedServiceId || SERVICES_LIST[0].id
   );
-  const [width, setWidth] = useState<number>(2);
-  const [height, setHeight] = useState<number>(1);
+  const [width, setWidth] = useState<number>(200);
+  const [height, setHeight] = useState<number>(100);
   const [quantity, setQuantity] = useState<number>(1);
   const [materialGrade, setMaterialGrade] = useState<'standard' | 'premium' | 'luxury'>('premium');
   const [clientName, setClientName] = useState('');
@@ -38,7 +38,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
 
   const selectedService = SERVICES_LIST.find((s) => s.id === selectedServiceId) || SERVICES_LIST[0];
 
-  const areaSqM = Math.max(0.1, width * height);
+  const areaSqM = Math.max(0.01, (width * height) / 10000);
   const estimatedDays = selectedService.typicalTurnaround || '3 - 5 Days';
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -50,13 +50,13 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
   const handleWhatsAppSend = () => {
     const text = `*NEW QUOTE INQUIRY - PIXELS ADVERTISEMENT*\n\n` +
       `*Service:* ${selectedService.title}\n` +
-      `*Dimensions:* ${width}m x ${height}m (${areaSqM.toFixed(2)} sq.m)\n` +
+      `*Dimensions:* ${width} cm x ${height} cm (${areaSqM.toFixed(2)} sq.m)\n` +
       `*Quantity:* ${quantity} unit(s)\n` +
       `*Material Grade:* ${materialGrade.toUpperCase()}\n` +
       `*Client Name:* ${clientName || 'Not specified'}\n` +
       `*Phone:* ${clientPhone || 'Not specified'}\n` +
       `*Notes:* ${projectNotes || 'None'}\n\n` +
-      `Requested from pixelsadvertisement.ae website`;
+      `Requested from ${COMPANY_DETAILS.website} website`;
 
     const encoded = encodeURIComponent(text);
     window.open(`https://wa.me/${COMPANY_DETAILS.phoneRaw}?text=${encoded}`, '_blank');
@@ -116,28 +116,28 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
               <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5">
                 <div>
                   <label className="block text-[10px] sm:text-[11px] font-semibold text-gray-300 mb-0.5">
-                    Width (m)
+                    Width (cm)
                   </label>
                   <input
                     type="number"
-                    step="0.1"
-                    min="0.1"
+                    step="1"
+                    min="1"
                     value={width}
-                    onChange={(e) => setWidth(parseFloat(e.target.value) || 0.1)}
+                    onChange={(e) => setWidth(parseFloat(e.target.value) || 1)}
                     className="w-full bg-[#181818] border border-white/10 rounded-lg sm:rounded-xl px-2 py-1 sm:px-3 sm:py-2 text-white text-xs sm:text-sm focus:border-[#FF6A00]"
                   />
                 </div>
 
                 <div>
                   <label className="block text-[10px] sm:text-[11px] font-semibold text-gray-300 mb-0.5">
-                    Height (m)
+                    Height (cm)
                   </label>
                   <input
                     type="number"
-                    step="0.1"
-                    min="0.1"
+                    step="1"
+                    min="1"
                     value={height}
-                    onChange={(e) => setHeight(parseFloat(e.target.value) || 0.1)}
+                    onChange={(e) => setHeight(parseFloat(e.target.value) || 1)}
                     className="w-full bg-[#181818] border border-white/10 rounded-lg sm:rounded-xl px-2 py-1 sm:px-3 sm:py-2 text-white text-xs sm:text-sm focus:border-[#FF6A00]"
                   />
                 </div>
@@ -252,7 +252,7 @@ export const QuoteCalculatorModal: React.FC<QuoteCalculatorModalProps> = ({
 
                   <div className="flex justify-between text-[11px] sm:text-xs">
                     <span className="text-gray-400">Dimensions:</span>
-                    <span className="text-white font-mono">{width}m × {height}m ({areaSqM.toFixed(2)} sq.m)</span>
+                    <span className="text-white font-mono">{width} cm × {height} cm ({areaSqM.toFixed(2)} sq.m)</span>
                   </div>
 
                   <div className="flex justify-between text-[11px] sm:text-xs">
