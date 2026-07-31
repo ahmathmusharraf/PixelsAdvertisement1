@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://pixelsadvertisement.com/sitemap.xml
+Sitemap: https://pixelsadv.ae/sitemap.xml
