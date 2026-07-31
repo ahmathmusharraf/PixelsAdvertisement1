@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Monitor, Smartphone, Tablet, Laptop, Maximize2, Sparkles, Check, Globe } from 'lucide-react';
+import { COMPANY_DETAILS } from '../data/pixelsData';
 
 interface DevicePresentationModeProps {
   children: React.ReactNode;
@@ -126,7 +127,7 @@ export const DevicePresentationMode: React.FC<DevicePresentationModeProps> = ({
             <div className="flex items-center gap-2 px-4 py-1 rounded-lg bg-[#09090b] text-[11px] font-mono text-gray-300 border border-white/5 w-1/2 max-w-md justify-center">
               <Globe className="w-3 h-3 text-[#9CD248]" />
               <span className="text-gray-400">https://</span>
-              <span className="text-white font-semibold">pixelsadvertisement.ae</span>
+              <span className="text-white font-semibold">{COMPANY_DETAILS.website}</span>
             </div>
 
             <div className="text-[10px] text-gray-400 font-mono">
