@@ -203,10 +203,10 @@ export const Header: React.FC<HeaderProps> = ({
 
                   <div>
                     <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3 pb-1 border-b border-white/10">
-                      Machinery & Traffic
+                      Traffic & Safety
                     </h4>
                     <ul className="space-y-2 text-xs">
-                      {SERVICES_LIST.filter((s) => ['Signage Machinery', 'Traffic Signs'].includes(s.category)).slice(0, 5).map((s) => (
+                      {SERVICES_LIST.filter((s) => ['Traffic Signs'].includes(s.category)).slice(0, 5).map((s) => (
                         <li key={s.id}>
                           <button
                             onClick={() => {
