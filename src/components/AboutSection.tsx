@@ -167,9 +167,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
                           LEADERSHIP STATEMENT
                         </div>
                         <h3 className="text-base sm:text-lg font-bold text-white font-display">
-                          Rizwan Farook
+                          Danyal (Pwng Liu)
                         </h3>
-                        <div className="text-[11px] text-gray-400">Founder & Managing Director</div>
+                        <div className="text-[11px] text-gray-400">CEO, Founder</div>
                       </div>
                     </div>
 
