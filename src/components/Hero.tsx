@@ -22,10 +22,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
   const [activeBgIndex, setActiveBgIndex] = useState(0);
 
   const heroVisuals = [
+    { title: 'Shop & Signage Showcase', img: '/shop.jpg', tag: 'Pixels Storefront' },
     { title: 'Vehicle Branding & Wraps', img: vehicleWrapImg, tag: 'RTA Compliant' },
     { title: '3D Illuminated LED Signage', img: signageImg, tag: 'Samsung IP67 LEDs' },
     { title: 'In-House Large Format Printing', img: heroBg, tag: '5m UV Printing Bay' },
-    { title: 'Exhibition Stands & Booths', img: exhibitionImg, tag: 'Dubai Expo Ready' },
   ];
 
   return (
@@ -172,8 +172,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-1.5 sm:p-3 border border-white/15 shadow-2xl">
               <div className="relative h-[160px] sm:h-[340px] lg:h-[420px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#0A0A0E]">
                 <img
-                  src={signageImg}
-                  alt="Pixels Outdoor & Indoor LED Screen Showcase"
+                  src="/shop.jpg"
+                  alt="Pixels Storefront & Signage Showcase"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
