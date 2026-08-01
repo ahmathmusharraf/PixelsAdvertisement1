@@ -70,7 +70,7 @@ export const LedScreenSpotlight: React.FC<LedScreenSpotlightProps> = ({ onOpenQu
             <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-2 sm:p-4 border border-white/15 shadow-2xl">
               <div className="relative h-[220px] sm:h-[380px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#0A0A0E]">
                 <img
-                  src={signageImg}
+                  src="/shop.jpg"
                   alt="Outdoor Indoor LED Screen Display"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
