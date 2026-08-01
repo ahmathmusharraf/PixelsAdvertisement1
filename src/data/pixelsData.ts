@@ -69,7 +69,7 @@ export interface BlogPost {
 }
 
 // Visual asset imports / references
-import heroBg from '../assets/images/hero_production_bg_1784955564881.jpg';
+import heroBg from '/shop.jpg';
 import signageImg from '../assets/images/signage_3d_led_1784955576953.jpg';
 import vehicleWrapImg from '../assets/images/vehicle_wrap_luxury_1784955588569.jpg';
 import exhibitionImg from '../assets/images/exhibition_stand_uae_1784955600692.jpg';
