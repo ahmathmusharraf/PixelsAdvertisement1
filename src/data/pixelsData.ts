@@ -564,7 +564,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: '7',
-    name: 'Susan Roney Thomas',
+    name: 'Susan Rony Thomas',
     role: 'Junior Accountant',
     image: '/Susan.jpg',
     socials: { linkedin: '#', twitter: '#', instagram: '#' },
