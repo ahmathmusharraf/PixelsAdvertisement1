@@ -522,7 +522,7 @@ export interface TeamMember {
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: '1',
-    name: 'Danyal (Pwng Liu)',
+    name: 'Danyal',
     role: 'CEO, Founder',
     image: '/Danyal.jpg',
     socials: { linkedin: '#', twitter: '#', instagram: '#' },
