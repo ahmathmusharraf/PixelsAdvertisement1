@@ -179,7 +179,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
 
                     <div className="flex items-center justify-between text-[10px] sm:text-xs text-gray-400 pt-1 font-mono border-t border-white/10">
                       <span>• Uncompromising Quality Control</span>
-                      <span className="font-serif italic font-bold text-[#FF6A00] text-sm">R. Farook</span>
+                      <span className="font-serif italic font-bold text-[#FF6A00] text-sm"></span>
                     </div>
                   </div>
                 )}
