@@ -543,11 +543,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: '4',
-    name: 'Tony Thomas',
-    role: 'Designer',
-    image: '/Tony.jpg',
+    name: 'Saroj Khan',
+    role: 'Production Manager',
+    image: '/Saroj.jpg',
     socials: { linkedin: '#', twitter: '#', instagram: '#' },
-  },
+  }, 
   {
     id: '5',
     name: 'Roney Thomas',
@@ -557,16 +557,16 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: '6',
-    name: 'Susan Roney Thomas',
-    role: 'Junior Accountant',
-    image: '/Susan.jpg',
+    name: 'Tony Thomas',
+    role: 'Designer',
+    image: '/Tony.jpg',
     socials: { linkedin: '#', twitter: '#', instagram: '#' },
   },
   {
     id: '7',
-    name: 'Saroj Khan',
-    role: 'Production Manager',
-    image: '/Saroj.jpg',
+    name: 'Susan Roney Thomas',
+    role: 'Junior Accountant',
+    image: '/Susan.jpg',
     socials: { linkedin: '#', twitter: '#', instagram: '#' },
   },
 ];
