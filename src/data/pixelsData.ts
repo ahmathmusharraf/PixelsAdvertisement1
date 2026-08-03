@@ -74,8 +74,9 @@ import signageImg from '../assets/images/signage_3d_led_1784955576953.jpg';
 import vehicleWrapImg from '../assets/images/vehicle_wrap_luxury_1784955588569.jpg';
 import exhibitionImg from '../assets/images/exhibition_stand_uae_1784955600692.jpg';
 import brandingImg from '../assets/images/packaging_branding_1784955613104.jpg';
+import backendTeamImg from '/BackTeam.jpg';
 
-export { heroBg, signageImg, vehicleWrapImg, exhibitionImg, brandingImg };
+export { heroBg, signageImg, vehicleWrapImg, exhibitionImg, brandingImg, backendTeamImg };
 
 export const COMPANY_DETAILS = {
   name: 'PIXELS ADVERTISEMENT',
@@ -567,6 +568,15 @@ export const TEAM_MEMBERS: TeamMember[] = [
     name: 'Susan Rony Thomas',
     role: 'Junior Accountant',
     image: '/Susan.jpg',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
+  },
+  {
+    id: '8',
+    name: 'Back-End & Fabrication Team',
+    role: 'Technical Operations & LED Specialists',
+    image: backendTeamImg,
+    image: '/BackTeam.jpg',
+    socials: { linkedin: '#', twitter: '#', instagram: '#' },
     socials: { linkedin: '#', twitter: '#', instagram: '#' },
   },
 ];
