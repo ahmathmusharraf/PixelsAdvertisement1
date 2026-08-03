@@ -76,7 +76,32 @@ import exhibitionImg from '../assets/images/exhibition_stand_uae_1784955600692.j
 import brandingImg from '../assets/images/packaging_branding_1784955613104.jpg';
 import backendTeamImg from '/BackTeam.jpg';
 
-export { heroBg, signageImg, vehicleWrapImg, exhibitionImg, brandingImg, backendTeamImg };
+// Uploaded Real Recent Project Images
+import spaSignboardImg from '../assets/images/project_spa_signboard_1785733716112.jpg';
+import portraitStandeeImg from '../assets/images/project_portrait_standee_1785733733250.jpg';
+import indoorLedScreenImg from '../assets/images/project_indoor_led_screen_1785733749361.jpg';
+import graduationSignImg from '../assets/images/project_graduation_sign_1785733764507.jpg';
+import bakersCornerSignImg from '../assets/images/project_bakers_corner_sign_1785733780455.jpg';
+import unikeySignImg from '../assets/images/project_unikey_sign_1785733794652.jpg';
+import cultureWallImg from '../assets/images/project_culture_wall_1785733813660.jpg';
+import curvedLedScreenImg from '../assets/images/project_curved_led_screen_1785733829383.jpg';
+
+export {
+  heroBg,
+  signageImg,
+  vehicleWrapImg,
+  exhibitionImg,
+  brandingImg,
+  backendTeamImg,
+  spaSignboardImg,
+  portraitStandeeImg,
+  indoorLedScreenImg,
+  graduationSignImg,
+  bakersCornerSignImg,
+  unikeySignImg,
+  cultureWallImg,
+  curvedLedScreenImg,
+};
 
 export const COMPANY_DETAILS = {
   name: 'PIXELS ADVERTISEMENT',
@@ -505,6 +530,99 @@ export const BLOG_POSTS: BlogPost[] = [
     date: 'May 14, 2026',
     excerpt: 'Understand turnaround times, substrate compatibility, cost per unit, and tactile spot UV finishes to select the right print method for your product.',
     image: brandingImg,
+  },
+];
+
+export interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  location: string;
+  description: string;
+  image: string;
+  client?: string;
+  specs?: string[];
+}
+export const RECENT_PROJECTS: ProjectItem[] = [
+  {
+    id: 'proj-1',
+    title: 'Green Men Foot Spa (GFS) 3D LED Signboard',
+    category: '3D Channel Letters & Facade',
+    location: 'Ajman & Dubai, UAE',
+    description: 'Custom illuminated 3D acrylic channel letter signboard with high-efficiency Samsung LED module wiring and precision Arabic-English typography for spa store facade.',
+    image: spaSignboardImg,
+    client: 'Green Men Foot Spa (GFS)',
+    specs: ['Samsung LED 1.2W Modules', '3D Acrylic Channel Letters', 'Ajman Municipality Approved', 'Bilingual Arabic/English'],
+  },
+  {
+    id: 'proj-2',
+    title: 'Custom Curved Standee & Pencil Portrait Display',
+    category: 'Events & Exhibition Display',
+    location: 'Exhibition Center, UAE',
+    description: 'Curved floor exhibit display standee featuring high-resolution pencil portrait artwork of Emirati dignitary in traditional bisht & ghutra for VIP trade entrance.',
+    image: portraitStandeeImg,
+    client: 'Royal Heritage Event',
+    specs: ['Curved Aluminium Frame', 'High-Res Textured Canvas Print', 'Pencil Portrait Artwork', 'Freestanding Floor Base'],
+  },
+  {
+    id: 'proj-3',
+    title: 'Giant Seamless Indoor Wall LED Video Screen',
+    category: 'Digital Signage & Video Walls',
+    location: 'Private Villa Lounge, UAE',
+    description: 'Ultra-high pitch P1.8 indoor LED video wall display screen engineered for live sports broadcasts and high-contrast video playback with zero bezel gap.',
+    image: indoorLedScreenImg,
+    client: 'Private Sports Lounge',
+    specs: ['P1.8 Fine Pitch Indoor LED', 'Seamless Video Wall Array', '4K Processor Integration', 'Low Power Heat Sink'],
+  },
+  {
+    id: 'proj-4',
+    title: 'Custom Event Photo Backdrop & Ceremony Display Board',
+    category: 'Event & Ceremony Branding',
+    location: 'Dubai Graduation Venue',
+    description: 'Luxury metallic framed ceremony display board featuring custom typography "Congratulations to the Graduates" for photo booth and stage entrance backdrop.',
+    image: graduationSignImg,
+    client: 'Academy Graduation Ceremony',
+    specs: ['Brushed Metal Perimeter Frame', 'Matte UV Non-Reflective Print', 'Graduation Icon Artwork', 'Standoff Marble Base'],
+  },
+  {
+    id: 'proj-5',
+    title: 'BC Baker\'s Corner 3D Illuminated Lightbox Sign',
+    category: 'Projecting Lightbox Signs',
+    location: 'Retail Commercial Center',
+    description: 'Double-sided round illuminated acrylic projecting wall sign with vibrant red and navy blue brand graphics, internal waterproof LED strip, and side wall flange bracket.',
+    image: bakersCornerSignImg,
+    client: 'Baker\'s Corner Bakery',
+    specs: ['Double-Sided Acrylic Face', 'Translucent Vinyl Graphics', 'Internal Perimeter LEDs', 'Steel Mounting Flange'],
+  },
+  {
+    id: 'proj-6',
+    title: 'UNIKEY Dimensional Acrylic Office Plaque',
+    category: 'Indoor Office Branding',
+    location: 'Corporate HQ Lobby',
+    description: 'Matte black acrylic background sign plate with 3D raised red and white laser-cut letters, wall mounted with 4 chrome stainless steel standoff bolts.',
+    image: unikeySignImg,
+    client: 'UNIKEY Corporate Office',
+    specs: ['8mm Matte Black Acrylic', '3D Raised Acrylic Lettering', '4 Chrome Standoff Glass Bolts', 'Precision Laser Finished'],
+  },
+  {
+    id: 'proj-7',
+    title: 'CHEC Corporate Culture Feature Wall Display',
+    category: 'Interior Wall Graphics',
+    location: 'Regional Headquarters',
+    description: 'Large-scale corporate culture feature wall displaying company values, Chinese & English text panels, gold metal framing, and custom hex badges.',
+    image: cultureWallImg,
+    client: 'CHEC Engineering & Construction',
+    specs: ['Gold Anodized Aluminium Trims', 'Hexagonal Acrylic Badges', 'UV Flatbed Print Panels', 'Integrated Wall Lighting'],
+  },
+  {
+    id: 'proj-8',
+    title: 'MUST Energy Outdoor Curved LED Video Display',
+    category: 'Outdoor Commercial LED',
+    location: 'Commercial Building Fascia',
+    description: 'High-brightness outdoor curved LED video screen facade installed on commercial storefront for MUST Energy (Guangdong) Tech Co., Ltd.',
+    image: curvedLedScreenImg,
+    client: 'MUST Energy Tech Co., Ltd',
+    specs: ['P4 Outdoor High-Brightness LED', 'Seamless Curved Facade Mount', 'IP65 Weatherproof Module', 'Remote Content Management'],
   },
 ];
 
