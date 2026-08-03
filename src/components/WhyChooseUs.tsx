@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Award,
   Cpu,
@@ -9,10 +9,29 @@ import {
   Headphones,
   ShieldCheck,
   Linkedin,
+  Maximize2,
+  X,
+  Sparkles,
 } from 'lucide-react';
 import { TEAM_MEMBERS } from '../data/pixelsData';
 
 export const WhyChooseUs: React.FC = () => {
+  const [activeModalItem, setActiveModalItem] = useState<{
+    title: string;
+    role: string;
+    image: string;
+    description?: string;
+  } | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setActiveModalItem(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
   const whyChooseFeatures = [
     { title: 'Premium Quality', desc: 'Top-notch materials & perfect finishing', icon: Award },
     { title: 'Latest Technology', desc: 'Advanced machines and modern tools', icon: Cpu },
@@ -82,7 +101,15 @@ export const WhyChooseUs: React.FC = () => {
               {TEAM_MEMBERS.map((member) => (
                 <div
                   key={member.id}
-                  className="group relative rounded-xl sm:rounded-2xl bg-[#0D0D12] border border-white/10 hover:border-[#FF6A00]/50 p-2 sm:p-3 transition-all duration-300 text-center"
+                  onClick={() =>
+                    setActiveModalItem({
+                      title: member.name,
+                      role: member.role,
+                      image: member.image,
+                      description: `Team Member at Pixels Advertisement - ${member.role}`,
+                    })
+                  }
+                  className="group relative rounded-xl sm:rounded-2xl bg-[#0D0D12] border border-white/10 hover:border-[#FF6A00]/50 p-2 sm:p-3 transition-all duration-300 text-center cursor-pointer hover:shadow-[0_0_20px_rgba(255,106,0,0.15)]"
                 >
                   <div className="relative h-32 sm:h-44 rounded-lg sm:rounded-xl overflow-hidden mb-2 bg-[#181820]">
                     <img
@@ -91,9 +118,21 @@ export const WhyChooseUs: React.FC = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-3">
-                      <div className="flex items-center gap-2">
-                        <a href={member.socials?.linkedin || "#"} target="_blank" rel="noopener noreferrer" className="p-1.5 rounded-full bg-white/20 hover:bg-[#FF6A00] text-white transition-colors" title="LinkedIn">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2 sm:p-3">
+                      <div className="flex justify-end">
+                        <span className="p-1 rounded-full bg-black/60 backdrop-blur-md text-white border border-white/20">
+                          <Maximize2 className="w-3 h-3" />
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-center gap-2">
+                        <a
+                          href={member.socials?.linkedin || "#"}
+                          onClick={(e) => e.stopPropagation()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1.5 rounded-full bg-white/20 hover:bg-[#FF6A00] text-white transition-colors"
+                          title="LinkedIn"
+                        >
                           <Linkedin className="w-3.5 h-3.5" />
                         </a>
                       </div>
@@ -113,6 +152,80 @@ export const WhyChooseUs: React.FC = () => {
 
         </div>
       </div>
+
+      {/* Glossy Full-Screen Image Lightbox Modal */}
+      {activeModalItem && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-xl animate-fade-in"
+          onClick={() => setActiveModalItem(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-4xl bg-gradient-to-b from-white/15 via-white/5 to-black/90 backdrop-blur-2xl border border-white/25 shadow-[0_0_60px_rgba(255,106,0,0.25)] rounded-3xl p-4 sm:p-7 overflow-hidden text-white transition-all duration-300 animate-scale-up"
+          >
+            {/* Top Glossy Reflection Sheen */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none rounded-3xl" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF6A00] to-transparent" />
+
+            {/* Modal Header */}
+            <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-4 relative z-10">
+              <div className="flex items-center gap-2">
+                <span className="p-1.5 rounded-lg bg-[#FF6A00]/20 border border-[#FF6A00]/40 text-[#FF6A00]">
+                  <Sparkles className="w-4 h-4" />
+                </span>
+                <span className="text-xs font-mono font-bold tracking-widest text-gray-300 uppercase">
+                  PIXELS TEAM PREVIEW
+                </span>
+              </div>
+              <button
+                onClick={() => setActiveModalItem(null)}
+                className="p-2 rounded-full bg-white/10 hover:bg-[#FF6A00] text-white transition-all hover:scale-110 border border-white/15"
+                title="Close (ESC)"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Glossy Image Container */}
+            <div className="relative rounded-2xl overflow-hidden bg-black/60 border border-white/15 shadow-2xl flex items-center justify-center group mb-4 max-h-[65vh]">
+              <img
+                src={activeModalItem.image}
+                alt={activeModalItem.title}
+                className="w-full h-full max-h-[65vh] object-contain rounded-2xl"
+                referrerPolicy="no-referrer"
+              />
+              {/* Glossy Glare Filter Effect */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent pointer-events-none" />
+              <div className="absolute top-3 right-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[11px] font-mono text-[#9CD248] font-bold">
+                HIGH RESOLUTION
+              </div>
+            </div>
+
+            {/* Footer Information */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 relative z-10">
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
+                  {activeModalItem.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-[#FF6A00] font-medium mt-0.5">
+                  {activeModalItem.role}
+                </p>
+                {activeModalItem.description && (
+                  <p className="text-xs text-gray-300 max-w-xl mt-1 line-clamp-2">
+                    {activeModalItem.description}
+                  </p>
+                )}
+              </div>
+              <button
+                onClick={() => setActiveModalItem(null)}
+                className="px-5 py-2.5 rounded-xl bg-[#FF6A00] hover:bg-[#e05d00] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-[#FF6A00]/30 shrink-0 self-end sm:self-auto"
+              >
+                Close Preview
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
