@@ -156,7 +156,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
                     <div className="flex items-start gap-3 sm:gap-4">
                       <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden shrink-0 border-2 border-[#FF6A00] shadow-lg">
                         <img
-                          src={TEAM_MEMBERS[0]?.image || "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80"}
+                          src={TEAM_MEMBERS[0]?.image || "/danyal.jpg"}
                           alt="Founder & CEO"
                           className="w-full h-full object-cover"
                           referrerPolicy="no-referrer"
@@ -167,7 +167,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
                           LEADERSHIP STATEMENT
                         </div>
                         <h3 className="text-base sm:text-lg font-bold text-white font-display">
-                          Danyal (Pwng Liu)
+                          Daniel
                         </h3>
                         <div className="text-[11px] text-gray-400">CEO, Founder</div>
                       </div>
@@ -179,7 +179,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenQuoteModal }) 
 
                     <div className="flex items-center justify-between text-[10px] sm:text-xs text-gray-400 pt-1 font-mono border-t border-white/10">
                       <span>• Uncompromising Quality Control</span>
-                      <span className="font-serif italic font-bold text-[#FF6A00] text-sm">R. Farook</span>
+                      <span className="font-serif italic font-bold text-[#FF6A00] text-sm"></span>
                     </div>
                   </div>
                 )}
