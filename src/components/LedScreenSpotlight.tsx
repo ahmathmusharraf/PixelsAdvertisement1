@@ -54,11 +54,11 @@ export const LedScreenSpotlight: React.FC<LedScreenSpotlightProps> = ({ onOpenQu
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white font-display tracking-tight">
-            Outdoor & Indoor <span className="bg-gradient-to-r from-[#FF6A00] via-[#FFD700] to-[#00F2FE] bg-clip-text text-transparent">LED Screen</span> Solutions
+            Illuminated Outdoor & Indoor <span className="bg-gradient-to-r from-[#FF6A00] via-[#FFD700] to-[#00F2FE] bg-clip-text text-transparent drop-shadow-[0_0_15px_rgba(255,106,0,0.6)]">LED Screen & 3D Signage</span> Solutions
           </h2>
 
           <p className="text-xs sm:text-base text-gray-300 font-sans leading-relaxed">
-            High-brightness LED video walls, programmable outdoor displays, and fine-pitch indoor screens with 3840Hz refresh rates and remote cloud content scheduling.
+            High-brightness illuminated LED video walls, 3D channel letters, programmable outdoor displays, and fine-pitch indoor screens with 3840Hz refresh rates and Samsung IP67 waterproof LED modules.
           </p>
         </div>
 
@@ -67,15 +67,41 @@ export const LedScreenSpotlight: React.FC<LedScreenSpotlightProps> = ({ onOpenQu
           
           {/* Left Column: Visual Screen Preview */}
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-2 sm:p-4 border border-white/15 shadow-2xl">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-2 sm:p-4 border border-[#FF6A00]/30 shadow-[0_0_35px_rgba(255,106,0,0.2)]">
               <div className="relative h-[220px] sm:h-[380px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#0A0A0E]">
-                <img
+                {/* Moving Storefront Image Animation */}
+                <motion.img
                   src="/shop.jpg"
-                  alt="Outdoor Indoor LED Screen Display"
+                  alt="Illuminated Outdoor Indoor LED Screen Display"
+                  animate={{
+                    scale: [1, 1.07, 1.02, 1.08, 1],
+                    x: [0, 6, -6, 4, 0],
+                    y: [0, -5, -2, -6, 0],
+                  }}
+                  transition={{
+                    duration: 15,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+
+                {/* Light Shimmer Sweep Effect */}
+                <motion.div
+                  animate={{
+                    x: ['-130%', '230%'],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    repeatDelay: 2.5,
+                    ease: 'easeInOut',
+                  }}
+                  className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 pointer-events-none z-10"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none z-10" />
 
                 {/* Overlaid Badges */}
                 <div className="absolute top-3 left-3 p-2.5 rounded-xl bg-black/80 backdrop-blur-md border border-white/20 flex items-center gap-2">
