@@ -76,11 +76,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3.5 sm:py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md"
+              className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3.5 sm:py-1.5 rounded-full bg-[#FF6A00]/10 border border-[#FF6A00]/40 backdrop-blur-md shadow-[0_0_15px_rgba(255,106,0,0.2)]"
             >
-              <Sparkles className="w-3 h-3 text-[#FF6A00]" />
-              <span className="text-[9px] sm:text-[11px] font-bold uppercase tracking-widest text-gray-300">
-                #1 LED SCREEN & SIGNAGE SPECIALIST IN UAE
+              <Sparkles className="w-3 h-3 text-[#FF6A00] animate-pulse" />
+              <span className="text-[9px] sm:text-[11px] font-extrabold uppercase tracking-widest text-[#FF6A00] drop-shadow-[0_0_8px_rgba(255,106,0,0.8)]">
+                #1 ILLUMINATED LED SCREEN & 3D SIGNAGE SPECIALIST IN UAE
               </span>
             </motion.div>
 
@@ -89,14 +89,38 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-[24px] sm:text-5xl lg:text-7xl font-black text-white font-display tracking-tight leading-[1.1]"
+              className="text-lg sm:text-2xl lg:text-4xl font-extrabold text-white font-display tracking-tight leading-snug"
             >
-              OUTDOOR & INDOOR <br className="hidden sm:inline" />
-              <span className="bg-gradient-to-r from-[#FF6A00] via-[#FFD700] to-[#00F2FE] bg-clip-text text-transparent">
+              <span className="text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]">
+                OUTDOOR & INDOOR
+              </span>{' '}
+              <motion.span
+                animate={{
+                  textShadow: [
+                    '0 0 8px #FF6A00, 0 0 16px #FF6A00',
+                    '0 0 12px #FFD700, 0 0 24px #FF6A00',
+                    '0 0 8px #FF6A00, 0 0 16px #FF6A00',
+                  ],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                className="bg-gradient-to-r from-[#FF6A00] via-[#FFD700] to-[#00F2FE] bg-clip-text text-transparent font-black"
+              >
                 LED SCREENS
-              </span> <br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-white drop-shadow-[0_0_25px_rgba(255,106,0,0.4)] mr-1.5">&</span> 
-              <span>3D SIGNAGE</span>
+              </motion.span>{' '}
+              <span className="font-serif italic font-normal text-[#FFD700] drop-shadow-[0_0_12px_rgba(255,106,0,0.6)] mx-1">&</span>{' '}
+              <motion.span
+                animate={{
+                  textShadow: [
+                    '0 0 8px #00F2FE, 0 0 16px #00F2FE',
+                    '0 0 16px #00F2FE, 0 0 28px #00F2FE',
+                    '0 0 8px #00F2FE, 0 0 16px #00F2FE',
+                  ],
+                }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                className="text-white drop-shadow-[0_0_12px_rgba(0,242,254,0.6)]"
+              >
+                3D ILLUMINATED SIGNAGE
+              </motion.span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -169,44 +193,89 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-6 relative mt-1 sm:mt-0"
           >
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-1.5 sm:p-3 border border-white/15 shadow-2xl">
-              <div className="relative h-[160px] sm:h-[340px] lg:h-[420px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#0A0A0E]">
-                <img
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden glass-card p-1.5 sm:p-3 border border-[#FF6A00]/30 shadow-[0_0_35px_rgba(255,106,0,0.25)]">
+              <div className="relative h-[180px] sm:h-[360px] lg:h-[440px] rounded-xl sm:rounded-2xl overflow-hidden bg-[#0A0A0E]">
+                {/* Moving Storefront Front Side Image Animation */}
+                <motion.img
                   src="/shop.jpg"
-                  alt="Pixels Storefront & Signage Showcase"
+                  alt="Pixels Front Side Storefront & Illuminated Signage"
+                  animate={{
+                    scale: [1, 1.08, 1.03, 1.09, 1],
+                    x: [0, -8, 6, -4, 0],
+                    y: [0, -6, -2, -8, 0],
+                  }}
+                  transition={{
+                    duration: 16,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30" />
+
+                {/* Animated Light Shimmer Glare Sweep */}
+                <motion.div
+                  animate={{
+                    x: ['-130%', '230%'],
+                  }}
+                  transition={{
+                    duration: 4.5,
+                    repeat: Infinity,
+                    repeatDelay: 2,
+                    ease: 'easeInOut',
+                  }}
+                  className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/25 to-transparent -skew-x-12 pointer-events-none z-10"
+                />
+
+                {/* Ambient Glowing Color Pulse Overlay */}
+                <motion.div
+                  animate={{
+                    opacity: [0.25, 0.55, 0.25],
+                  }}
+                  transition={{
+                    duration: 3.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                  className="absolute inset-0 bg-gradient-to-tr from-[#FF6A00]/20 via-transparent to-[#00F2FE]/20 pointer-events-none z-10"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none z-10" />
+
+                {/* Live Motion Badge */}
+                <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-6 z-20 px-2 py-1 sm:px-3 sm:py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-white/20 flex items-center gap-1.5 text-[8px] sm:text-[10px] font-mono text-white shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-[#9CD248] animate-ping" />
+                  <span className="font-bold text-[#9CD248] uppercase tracking-wider">LIVE ANIMATED STOREFRONT</span>
+                </div>
 
                 {/* Floating Badge 1: LED Displays */}
                 <motion.div
-                  animate={{ y: [0, -3, 0] }}
+                  animate={{ y: [0, -5, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-2 left-2 sm:top-4 sm:left-6 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/85 backdrop-blur-md border border-[#FF6A00]/50 flex items-center gap-1.5 sm:gap-2.5 shadow-xl"
+                  className="absolute top-2 left-2 sm:top-4 sm:left-6 z-20 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/90 backdrop-blur-md border border-[#FF6A00]/60 flex items-center gap-1.5 sm:gap-2.5 shadow-[0_0_20px_rgba(255,106,0,0.35)]"
                 >
                   <div className="w-2 h-2 rounded-full bg-[#FF6A00] animate-ping" />
-                  <span className="text-[8px] sm:text-[11px] font-mono font-extrabold text-[#FF6A00] uppercase tracking-wider">
-                    OUTDOOR & INDOOR LED SCREENS
+                  <span className="text-[8px] sm:text-[11px] font-mono font-extrabold text-[#FF6A00] uppercase tracking-wider drop-shadow-[0_0_8px_rgba(255,106,0,0.8)]">
+                    ILLUMINATED OUTDOOR & INDOOR LED SCREENS
                   </span>
                 </motion.div>
 
                 {/* Floating Badge 2: 3D Signage */}
                 <motion.div
-                  animate={{ y: [0, 3, 0] }}
+                  animate={{ y: [0, 5, 0] }}
                   transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-2 right-2 sm:top-4 sm:right-6 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md border border-white/20 shadow-xl"
+                  className="absolute top-2 right-2 sm:top-4 sm:right-6 z-20 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/85 backdrop-blur-md border border-[#00F2FE]/50 shadow-[0_0_20px_rgba(0,242,254,0.35)]"
                 >
-                  <span className="text-[8px] sm:text-[11px] font-mono font-bold text-[#00F2FE] uppercase tracking-wider">
-                    3D SIGNAGE
+                  <span className="text-[8px] sm:text-[11px] font-mono font-bold text-[#00F2FE] uppercase tracking-wider drop-shadow-[0_0_8px_rgba(0,242,254,0.8)]">
+                    ILLUMINATED 3D SIGNAGE
                   </span>
                 </motion.div>
 
                 {/* Floating Badge 3: Sticker Branding */}
                 <motion.div
-                  animate={{ x: [0, 3, 0] }}
+                  animate={{ x: [0, 4, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute top-1/2 right-2 -translate-y-1/2 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md border border-white/20 shadow-xl"
+                  className="absolute top-1/2 right-2 -translate-y-1/2 z-20 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/85 backdrop-blur-md border border-[#9CD248]/50 shadow-[0_0_15px_rgba(156,210,72,0.3)]"
                 >
                   <span className="text-[8px] sm:text-[11px] font-mono font-bold text-[#9CD248] uppercase tracking-wider">
                     STICKER BRANDING
@@ -215,9 +284,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenQuoteModal }) => {
 
                 {/* Floating Badge 4: Printing & Machinery */}
                 <motion.div
-                  animate={{ y: [0, -3, 0] }}
+                  animate={{ y: [0, -4, 0] }}
                   transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
-                  className="absolute bottom-2 right-2 sm:bottom-4 sm:right-6 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/80 backdrop-blur-md border border-white/20 flex items-center gap-1.5 sm:gap-3 shadow-xl max-w-xs"
+                  className="absolute bottom-2 right-2 sm:bottom-4 sm:right-6 z-20 p-1 sm:p-2.5 rounded-lg sm:rounded-xl bg-black/85 backdrop-blur-md border border-white/20 flex items-center gap-1.5 sm:gap-3 shadow-xl max-w-xs"
                 >
                   <div className="w-7 h-5 sm:w-12 sm:h-8 rounded overflow-hidden shrink-0">
                     <img src={heroBg} alt="Printing & Paper" className="w-full h-full object-cover" />
