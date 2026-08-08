@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import {
   Tv,
   Sun,
@@ -11,30 +11,142 @@ import {
   CheckCircle2,
   Maximize2,
   Zap,
+  Image as ImageIcon,
+  Upload,
+  X,
+  Plus,
+  Camera,
+  Check,
 } from 'lucide-react';
-import { heroBg, signageImg } from '../data/pixelsData';
+import {
+  heroBg,
+  signageImg,
+  indoorLedScreenImg,
+  curvedLedScreenImg,
+  spaSignboardImg,
+} from '../data/pixelsData';
 
 interface LedScreenSpotlightProps {
   onOpenQuoteModal: (serviceId?: string) => void;
 }
 
+interface SampleItem {
+  id: string;
+  title: string;
+  category: 'outdoor' | 'indoor';
+  pitch: string;
+  location: string;
+  image: string;
+  isCustom?: boolean;
+}
+
 export const LedScreenSpotlight: React.FC<LedScreenSpotlightProps> = ({ onOpenQuoteModal }) => {
-  const [activeTab, setActiveTab] = useState<'outdoor' | 'indoor' | 'specs'>('outdoor');
+  const [sampleModalType, setSampleModalType] = useState<'outdoor' | 'indoor' | null>(null);
+
+  // Pre-populated default samples
+  const [samples, setSamples] = useState<SampleItem[]>([
+    {
+      id: 'out-1',
+      title: 'Outdoor Curved Facade P4 Commercial LED Display',
+      category: 'outdoor',
+      pitch: 'P4 Outdoor IP65',
+      location: 'Commercial Building Facade, Dubai',
+      image: curvedLedScreenImg,
+    },
+    {
+      id: 'out-2',
+      title: 'P6 Outdoor Illuminated Storefront LED Screen',
+      category: 'outdoor',
+      pitch: 'P6 High Brightness 6,500 Nits',
+      location: 'Retail Store Entrance, Ajman',
+      image: '/shop.jpg',
+    },
+    {
+      id: 'out-3',
+      title: 'Outdoor 3D Channel Letter Signboard with Samsung LEDs',
+      category: 'outdoor',
+      pitch: 'Samsung 1.2W LED Modules',
+      location: 'Green Men Foot Spa, UAE',
+      image: spaSignboardImg,
+    },
+    {
+      id: 'in-1',
+      title: 'P1.8 Ultra Fine Pitch Indoor Seamless Video Wall',
+      category: 'indoor',
+      pitch: 'P1.8 Fine Pitch 4K',
+      location: 'Luxury Villa Lounge, Dubai',
+      image: indoorLedScreenImg,
+    },
+    {
+      id: 'in-2',
+      title: 'Indoor P2.5 Commercial Lobby & Stage LED Display',
+      category: 'indoor',
+      pitch: 'P2.5 High Refresh 3840Hz',
+      location: 'Corporate HQ Lobby, UAE',
+      image: signageImg,
+    },
+    {
+      id: 'in-3',
+      title: 'P1.5 Exhibition Booth & Control Room LED Array',
+      category: 'indoor',
+      pitch: 'P1.5 Fanless Silent Cabinet',
+      location: 'Exhibition Center, Abu Dhabi',
+      image: heroBg,
+    },
+  ]);
+
+  const [selectedSample, setSelectedSample] = useState<SampleItem | null>(null);
+
+  const handleOpenSampleModal = (type: 'outdoor' | 'indoor') => {
+    setSampleModalType(type);
+    const categorySamples = samples.filter((s) => s.category === type);
+    if (categorySamples.length > 0) {
+      setSelectedSample(categorySamples[0]);
+    }
+  };
+
+  const handleCustomUpload = (e: React.ChangeEvent<HTMLInputElement>, category: 'outdoor' | 'indoor') => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (uploadEvent) => {
+        const imageUrl = uploadEvent.target?.result as string;
+        const newSample: SampleItem = {
+          id: `custom-${Date.now()}`,
+          title: `Custom Uploaded ${category === 'outdoor' ? 'Outdoor' : 'Indoor'} Sample`,
+          category: category,
+          pitch: 'Custom Sample Photo',
+          location: 'Uploaded by Client',
+          image: imageUrl,
+          isCustom: true,
+        };
+        setSamples((prev) => [newSample, ...prev]);
+        setSelectedSample(newSample);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const ledHighlights = [
     {
+      type: 'outdoor' as const,
       title: 'Outdoor HD LED Screens',
       pitch: 'P2.5 / P6 / P10',
       brightness: '6,500+ Nits Daylight Clear',
       waterproof: 'IP65 Weatherproof Sealed',
       desc: 'Engineered specifically for harsh Gulf climates with anti-glare high refresh rate panels, heat dissipation aluminum, and storm resistance.',
+      btnText: 'View Outdoor LED Samples',
+      btnColor: 'bg-[#FF6A00]/10 hover:bg-[#FF6A00] text-[#FF6A00] hover:text-white border-[#FF6A00]/30',
     },
     {
+      type: 'indoor' as const,
       title: 'Indoor Fine-Pitch LED Video Walls',
       pitch: 'P1.5 / P1.8 / P2.5 / P3',
       brightness: '1,200 Nits High Contrast',
       waterproof: 'Seamless Bezel-Free Display',
       desc: 'Ultra-thin, silent fanless cabinets ideal for luxury retail receptions, control rooms, auditoriums, and exhibition booths.',
+      btnText: 'View Indoor LED Samples',
+      btnColor: 'bg-[#00F2FE]/10 hover:bg-[#00F2FE] text-[#00F2FE] hover:text-black border-[#00F2FE]/30',
     },
   ];
 
@@ -169,6 +281,16 @@ export const LedScreenSpotlight: React.FC<LedScreenSpotlightProps> = ({ onOpenQu
                     <span>{item.waterproof}</span>
                   </div>
                 </div>
+
+                {/* Button to view / upload LED samples */}
+                <button
+                  onClick={() => handleOpenSampleModal(item.type)}
+                  className={`mt-4 w-full py-2.5 px-4 rounded-xl border font-mono font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md ${item.btnColor}`}
+                >
+                  <ImageIcon className="w-4 h-4" />
+                  <span>{item.btnText}</span>
+                  <Camera className="w-3.5 h-3.5 opacity-80" />
+                </button>
               </motion.div>
             ))}
 
@@ -187,6 +309,160 @@ export const LedScreenSpotlight: React.FC<LedScreenSpotlightProps> = ({ onOpenQu
         </div>
 
       </div>
+
+      {/* INTERACTIVE SAMPLE GALLERY & UPLOAD MODAL */}
+      <AnimatePresence>
+        {sampleModalType && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-xl animate-fade-in"
+            onClick={() => setSampleModalType(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-4xl bg-gradient-to-b from-[#161622] via-[#0D0D14] to-[#08080C] border border-white/20 shadow-[0_0_60px_rgba(255,106,0,0.25)] rounded-3xl p-4 sm:p-7 overflow-hidden text-white max-h-[92vh] flex flex-col justify-between"
+            >
+              {/* Header */}
+              <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3 relative z-10 shrink-0">
+                <div className="flex items-center gap-2.5">
+                  <span className="p-2 rounded-xl bg-[#FF6A00]/20 border border-[#FF6A00]/40 text-[#FF6A00]">
+                    <Tv className="w-5 h-5" />
+                  </span>
+                  <div>
+                    <h3 className="text-sm sm:text-lg font-bold font-display uppercase tracking-wider text-white">
+                      {sampleModalType === 'outdoor'
+                        ? 'Outdoor HD LED Screen Samples'
+                        : 'Indoor Fine-Pitch LED Video Wall Samples'}
+                    </h3>
+                    <p className="text-[10px] sm:text-xs text-gray-400 font-mono">
+                      Browse fabricated LED screen installations
+                    </p>
+                  </div>
+                </div>
+
+                <button
+                  onClick={() => setSampleModalType(null)}
+                  className="p-2 rounded-full bg-white/10 hover:bg-[#FF6A00] text-white transition-all hover:scale-110 border border-white/15 cursor-pointer"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Main Content Body */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 overflow-y-auto pr-1 my-2 shrink-1">
+                {/* Left: Active Image Preview */}
+                <div className="lg:col-span-8 flex flex-col justify-between bg-black/60 rounded-2xl border border-white/10 p-3 relative group overflow-hidden min-h-[260px] sm:min-h-[360px]">
+                  {selectedSample ? (
+                    <div className="relative w-full h-full min-h-[220px] sm:min-h-[300px] rounded-xl overflow-hidden flex items-center justify-center">
+                      <img
+                        src={selectedSample.image}
+                        alt={selectedSample.title}
+                        className="w-full h-full object-contain rounded-xl max-h-[50vh]"
+                        referrerPolicy="no-referrer"
+                      />
+                      <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/15 text-[10px] font-mono text-[#9CD248] font-bold">
+                        {selectedSample.pitch}
+                      </div>
+
+                      {selectedSample.isCustom && (
+                        <div className="absolute top-2 right-2 px-2.5 py-1 rounded-full bg-[#FF6A00] text-white text-[10px] font-mono font-bold shadow-lg">
+                          Client Custom Upload
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex items-center justify-center h-full text-gray-500 font-mono text-xs">
+                      Select a sample below
+                    </div>
+                  )}
+
+                  {/* Caption */}
+                  {selectedSample && (
+                    <div className="mt-3 p-3 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                      <div>
+                        <div className="text-xs sm:text-sm font-bold text-white font-display">
+                          {selectedSample.title}
+                        </div>
+                        <div className="text-[10px] text-gray-400 font-mono">
+                          {selectedSample.location}
+                        </div>
+                      </div>
+
+                      <button
+                        onClick={() => {
+                          setSampleModalType(null);
+                          onOpenQuoteModal('outdoor-indoor-led-screen');
+                        }}
+                        className="px-3.5 py-2 rounded-xl bg-[#FF6A00] hover:bg-[#e05d00] text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all shadow-md shrink-0 cursor-pointer"
+                      >
+                        Request Quote for This
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                {/* Right: Gallery Thumbnails */}
+                <div className="lg:col-span-4 flex flex-col justify-between space-y-3">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs font-bold font-mono text-gray-300 uppercase">
+                        Sample Gallery ({samples.filter((s) => s.category === sampleModalType).length})
+                      </span>
+                    </div>
+
+                    <div className="space-y-2 max-h-[320px] sm:max-h-[380px] overflow-y-auto pr-1">
+                      {samples
+                        .filter((s) => s.category === sampleModalType)
+                        .map((s) => (
+                          <div
+                            key={s.id}
+                            onClick={() => setSelectedSample(s)}
+                            className={`p-2 rounded-xl border flex items-center gap-3 cursor-pointer transition-all ${
+                              selectedSample?.id === s.id
+                                ? 'bg-[#FF6A00]/20 border-[#FF6A00] shadow-[0_0_15px_rgba(255,106,0,0.3)]'
+                                : 'bg-white/5 border-white/10 hover:border-white/30 hover:bg-white/10'
+                            }`}
+                          >
+                            <img
+                              src={s.image}
+                              alt={s.title}
+                              className="w-14 h-12 object-cover rounded-lg shrink-0 border border-white/10"
+                              referrerPolicy="no-referrer"
+                            />
+                            <div className="overflow-hidden">
+                              <div className="text-[11px] font-bold text-white truncate">
+                                {s.title}
+                              </div>
+                              <div className="text-[9px] text-[#FF6A00] font-mono">
+                                {s.pitch}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 shrink-0">
+                <span className="font-mono text-[10px]">
+                  PIXELS ADVERTISEMENT • UAE LED SCREEN MANUFACTURING
+                </span>
+                <button
+                  onClick={() => setSampleModalType(null)}
+                  className="px-4 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold text-xs transition-colors cursor-pointer"
+                >
+                  Close
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
+
