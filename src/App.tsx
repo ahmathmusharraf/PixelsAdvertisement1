@@ -16,6 +16,7 @@ import { Footer } from './components/Footer';
 import { QuoteCalculatorModal } from './components/QuoteCalculatorModal';
 import { FloatingActions } from './components/FloatingActions';
 import { MobileBottomNav } from './components/MobileBottomNav';
+import { SectionTransition } from './components/SectionTransition';
 
 export default function App() {
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -69,40 +70,62 @@ export default function App() {
           activeSection={activeSection}
         />
 
-        {/* Main Content Sections */}
-        <main>
+        {/* Main Content Sections with Smooth Scroll Transitions */}
+        <main className="overflow-hidden">
           {/* Hero Section */}
-          <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
+          <SectionTransition id="hero" showDivider={false}>
+            <Hero onOpenQuoteModal={() => handleOpenQuoteModal()} />
+          </SectionTransition>
 
           {/* Services Grid */}
-          <ServicesSection onOpenQuoteModal={handleOpenQuoteModal} />
+          <SectionTransition glowColor="orange">
+            <ServicesSection onOpenQuoteModal={handleOpenQuoteModal} />
+          </SectionTransition>
 
           {/* LED Screen Specialized Feature Spotlight */}
-          <LedScreenSpotlight onOpenQuoteModal={handleOpenQuoteModal} />
+          <SectionTransition glowColor="cyan">
+            <LedScreenSpotlight onOpenQuoteModal={handleOpenQuoteModal} />
+          </SectionTransition>
 
           {/* About Company & Facility */}
-          <AboutSection onOpenQuoteModal={() => handleOpenQuoteModal()} />
+          <SectionTransition glowColor="mixed">
+            <AboutSection onOpenQuoteModal={() => handleOpenQuoteModal()} />
+          </SectionTransition>
 
           {/* Why Choose Us */}
-          <WhyChooseUs />
+          <SectionTransition glowColor="green">
+            <WhyChooseUs />
+          </SectionTransition>
 
           {/* 5-Step Process Timeline */}
-          <ProcessSection />
+          <SectionTransition glowColor="orange">
+            <ProcessSection />
+          </SectionTransition>
 
           {/* Verified Client Testimonials */}
-          <TestimonialsSection />
+          <SectionTransition glowColor="mixed">
+            <TestimonialsSection />
+          </SectionTransition>
 
           {/* Industries & Sectors Served */}
-          <IndustriesSection />
+          <SectionTransition glowColor="cyan">
+            <IndustriesSection />
+          </SectionTransition>
 
           {/* Industry Insights / SEO Blog */}
-          <BlogSection />
+          <SectionTransition glowColor="orange">
+            <BlogSection />
+          </SectionTransition>
 
           {/* Call to Action Banner */}
-          <CallToActionBanner onOpenQuoteModal={() => handleOpenQuoteModal()} />
+          <SectionTransition glowColor="mixed">
+            <CallToActionBanner onOpenQuoteModal={() => handleOpenQuoteModal()} />
+          </SectionTransition>
 
           {/* Ajman Facility Location & Contact Form */}
-          <ContactSection />
+          <SectionTransition glowColor="orange">
+            <ContactSection />
+          </SectionTransition>
         </main>
 
         {/* Mega Footer */}
@@ -127,3 +150,4 @@ export default function App() {
     </DevicePresentationMode>
   );
 }
+
